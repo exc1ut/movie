@@ -6,7 +6,7 @@ function App() {
   return (
     <StylesProvider injectFirst>
       <CssBaseline />
-      <p>Hello world</p>
+      
     </StylesProvider>
   );
 }
