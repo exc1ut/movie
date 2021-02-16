@@ -1,0 +1,128 @@
+.Card {
+    position: relative;
+    max-width: 340px;
+    max-height: 290px;
+    overflow: hidden;
+
+}
+.Card>.badges {
+    display: flex;
+    margin: 10px;
+    position: absolute;
+    top: 1px;
+    width: 90%;
+    justify-content: space-between;
+     
+}
+.Card>.badges>.bookmark img {
+    width: 20px;
+    height: 30px;
+    object-fit: contain;
+}
+.Card>.badges>.bookmark {
+    background-color: black;
+    opacity: 0.5;
+    padding: 5px;
+}
+.Card>.badges>.rating img {
+    width: 20px;
+    height: 30px;
+}
+.Card>.badges>.rating {
+    padding: 5px;
+    box-sizing: border-box;
+    
+    display: flex;
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+
+}
+.playButton {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    max-width: 150px;
+    max-height: 150px;  
+}
+.playButton>img {
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+.Small>img:hover .Small>.playButton {
+    visibility: visible;
+}
+.ratingNumber {
+    margin-left: 5px;
+}
+.Card img {
+ max-width: 100%;
+ max-height: 100%;
+ border-radius: 19px;
+ transition: 0.3s;
+ display: block;
+ box-sizing: border-box;
+}
+
+.Card>img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.Card>.movieInfo{
+    position: absolute;
+    top: 70%;
+    max-width: 100%;
+    color: white;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;   
+}
+ .Card>.movieInfo>.title{
+    font-size: 20pt;
+    line-height: 1.9;
+
+ }
+ .Card>.movieInfo> .otherData {
+     display: flex;
+     justify-content: space-between;
+     font-size: 15pt;
+     max-width: 80%;
+ }
+ .Small {
+     width: 190px;
+     height: 270px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
+ .Small img {
+     max-width: 100%;
+     min-height: 80%;
+     border-radius: 10px;
+     
+}
+ .Small>.movieInfo {
+     line-height: 1.6;
+     font-family: monospace;
+     color:white;
+     width: 100%;
+    }
+ .Small>.movieInfo>.title {
+     font-size: 12pt;
+     
+ }
+ .Small>.movieInfo>.otherData{
+     font-size: 10pt;
+     display: flex;
+     justify-content: space-between;
+     max-width: 80%;
+
+ }
+ .Small img:hover {
+     filter: blur(4px);
+     cursor: pointer;
+     overflow: hidden;
+ }
+ 
