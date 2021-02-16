@@ -6,7 +6,7 @@ const Card = (props) => {
         <div className = {props.type === "large"? styles.Card :styles.Small }>
             <img  src={props.mainImage} alt=""/>            
              <div className = {styles.playButton}>
-                <PlayCircleOutlineIcon className = {}/>
+                <PlayCircleOutlineIcon/>
              </div>
              <div className = {styles.badges}>
                  <div className={styles.bookmark}>
