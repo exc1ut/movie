@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from '../Navbar.module.css'
-const Searchbar = () => {
+import {useRef, useEffect} from 'react'
+const Searchbar = (props) => {
+    const inputRef = useRef(null);
+    useEffect(()=>{
+        inputRef.current.focus()
+    },[props.display])
     return (
         <div>
-            <input type="text" placeholder = "I am looking for ..." className = {styles.searchbar}/>
+            <input ref ={inputRef} type="text" placeholder = "I am looking for ..." className = {props.display?styles.searchVisible:styles.searchbar}/>
         </div>
     );
 }

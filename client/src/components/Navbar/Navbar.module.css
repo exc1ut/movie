@@ -1,8 +1,7 @@
 .Header {
     width: 100%;
     padding: 0px;
-    background-color: rgb(0, 10, 42);
-   
+    background-color: black; 
     }
     
 .SideDrawer {
@@ -18,7 +17,7 @@
 .Navbar{
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     color: white;
     align-items: center;
     
@@ -42,7 +41,7 @@
     background-color:white
 }
 
-.searchbar{
+.searchbar,.searchVisible{
     outline: none;
     box-shadow: none;
     color: white;
@@ -128,10 +127,16 @@
     font-weight: 400;
     color: blue;
 }
+.searchIcon {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
 
 
 
-@media(min-width :600px){
+
+@media(min-width :601px){
     .Header {
         width: 100%;
         padding: 0px;
@@ -161,7 +166,7 @@
         background-color:white
     }
     
-    .searchbar{
+    .searchbar,.searchVisible{
         outline: none;
         box-shadow: none;
         color: white;
@@ -249,12 +254,73 @@
     .SideDrawer{
         display: none;
     }
+    .searchIcon {
+        display: none;
+        width: 40px;
+        height: 40px;
+    }
+    
 
 }
-@media(max-width: 850px){
-    .Logo {
+
+@media (min-width:460px) and (max-width:950px){
+    .Navbar {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .Header {
+        width: 100%;
+    }
+    .Logo{
+        display: block;
+    }
+    .Auth {
+        display: flex;
+        margin-left: 0;
+        padding: 0;
+    }
+    .searchbar{
+        width:  120%;
+    }
+    .searchIcon {
         display: none;
     }
-  
-  
+   
+
+}
+
+@media (max-width:450px) {
+    .Navbar {
+        min-width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       
+    }
+    .searchbar {
+        min-width: 240px;
+        display: none;
+    }
+    .searchVisible {
+        outline: none;
+        box-shadow: none;
+        color: white;
+        padding: 8px;
+        width: 250px;
+        border-radius: 8px;
+        background-color: rgb(48, 63, 79);
+        border: none;
+        background-image: url('https://purepng.com/public/uploads/large/search-icon-lob.png');
+        background-position: 95% 2px;
+        background-size: 25px 25px;
+        position: relative;
+        background-repeat: no-repeat;
+    }
+    .searchIcon img{
+        width: 75%;
+        height: 75%;
+    }
+    
 }
