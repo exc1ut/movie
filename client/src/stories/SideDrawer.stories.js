@@ -1,10 +1,9 @@
 import React from "react";
-import SideDrawer from '../components/Navbar/mini_tools/SideDrawer'
+import SideDrawer from "../components/Navbar/mini_tools/SideDrawer";
 
-export  default{
+export default {
   title: "SideDrawer",
   component: SideDrawer,
-  
 };
 const Template = (args) => <SideDrawer {...args} />;
 
