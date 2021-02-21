@@ -20,7 +20,7 @@ const Template: Story<ComponentProps<typeof HomeCarousel>> = (args) => (
   <HomeCarousel {...args}>
     {[1, 2, 3, 4, 5, 6].map((i) => (
       <div>
-        <Box width="100%" display="flex" justifyContent="center">
+        <Box px={4} width="100%" display="flex" justifyContent="center">
           <Card type="large" {...data} />
         </Box>
       </div>

@@ -18,7 +18,7 @@ const settings = {
   infinite: true,
   centerPadding: "60px",
   autoplay: true,
-  slidesToShow: 1,
+  slidesToShow: 3,
   speed: 500,
   nextArrow: <Arrow />,
   prevArrow: <Arrow />,
@@ -35,6 +35,7 @@ const settings = {
     {
       breakpoint: 960,
       settings: {
+        centerMode: false,
         slidesToShow: 2,
         slidesToScroll: 2,
         initialSlide: 2,

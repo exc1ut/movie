@@ -1,3 +1,4 @@
+import { Container } from "@material-ui/core";
 import { Footer } from "./Footer";
 import Navbar from "./Navbar/Navbar";
 
@@ -7,7 +8,9 @@ export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />
-      {children}
+      <Container>
+        <div>{children}</div>
+      </Container>
       <Footer />
     </>
   );
