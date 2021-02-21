@@ -19,7 +19,8 @@ const settings = {
   centerPadding: "60px",
   autoplay: true,
   slidesToShow: 3,
-  speed: 500,
+  slidesToScroll: 3,
+  speed: 1300,
   nextArrow: <Arrow />,
   prevArrow: <Arrow />,
   responsive: [
