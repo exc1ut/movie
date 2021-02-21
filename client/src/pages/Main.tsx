@@ -58,7 +58,7 @@ export const Main: React.FC<Props> = () => {
         <motion.div variants={container} initial="hidden" animate="visible">
           <Grid container spacing={5}>
             {[...new Array(18)].map((val, index) => (
-              <Grid item lg={2} key={index}>
+              <Grid item lg={2} md={3} sm={4} xs={12} key={index}>
                 <motion.div variants={item}>
                   <Card mainImage={generatePhoto()} type="small" {...data} />
                 </motion.div>
