@@ -23,7 +23,7 @@ export const Main: React.FC<Props> = () => {
       <HomeCarousel>
         {[1, 2, 3, 4, 5, 6].map((i) => (
           <div key={i}>
-            <Box px={4} width="100%" display="flex" justifyContent="center">
+            <Box px={2} width="100%" display="flex" justifyContent="center">
               <Card mainImage={generatePhoto()} type="large" {...data} />
             </Box>
           </div>
