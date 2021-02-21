@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import NavItem from "./mini_tools/NavItem";
 import Dots from "./mini_tools/dot";
