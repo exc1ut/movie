@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Card.module.css";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
-import { Box, Typography } from "@material-ui/core";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 interface Props {
   mainImage: string;

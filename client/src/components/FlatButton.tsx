@@ -1,5 +1,4 @@
 import { Button, createStyles, makeStyles, Theme } from "@material-ui/core";
-import { __String } from "typescript";
 
 interface FlatButtonProps {
   title: string;
