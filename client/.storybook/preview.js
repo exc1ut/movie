@@ -3,6 +3,10 @@ import { theme } from "../src/config/theme";
 import { addDecorator } from "@storybook/react";
 import { CssBaseline } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
+import "../src/styles/fonts.css";
+import "slick-carousel/slick/slick.css";
+
+import "slick-carousel/slick/slick-theme.css";
 
 const customViewports = {
   lg: {
