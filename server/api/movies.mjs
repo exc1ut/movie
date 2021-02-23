@@ -38,7 +38,7 @@ router.get(`/contents/genres`, (req,res,next) => {
             }
             return 0;
         })
-        return res.status(200).json(data);
+        return res.status(200).json(data); 
     });
 })
 
