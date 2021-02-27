@@ -3,6 +3,8 @@ import { theme } from "../src/config/theme";
 import { addDecorator } from "@storybook/react";
 import { CssBaseline } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
+import store from "../src/store/store";
+import { Provider } from "react-redux";
 import "../src/styles/fonts.css";
 import "slick-carousel/slick/slick.css";
 
@@ -62,8 +64,10 @@ export const parameters = {
 export const decorators = [muiTheme([theme])];
 
 addDecorator((story) => (
-  <StylesProvider injectFirst>
-    <CssBaseline />
-    {story()}
-  </StylesProvider>
+  <Provider store={store}>
+    <StylesProvider injectFirst>
+      <CssBaseline />
+      {story()}
+    </StylesProvider>
+  </Provider>
 ));
