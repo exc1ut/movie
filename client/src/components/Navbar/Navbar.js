@@ -5,15 +5,22 @@ import Dots from "./mini_tools/dot";
 import Searchbar from "./mini_tools/searchbar";
 import Auth from "./mini_tools/userAuth";
 import Burger from "./mini_tools/burger";
-import { Container } from "@material-ui/core";
+import { Container} from "@material-ui/core";
+import {Link} from 'react-router-dom';
+import SearchButton from './svg/SearchSvg'
+import CloseSearchBar from './mini_tools/CloseSearchBar'
+
 const Navbar = () => {
   let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
   const [search, setSearch] = useState(false);
-
+  const [sideDrawer, setSideDrawer] = useState(false);
+  /*burgerCkickHandler = () => {
+    setSideDrawer(true);
+  }*/
   return (
     <div className={styles.Header}>
       <Container>
-        <div className={styles.Navbar}>
+       {!search?<div className={styles.Navbar}>
           <div className={styles.burger}>
             <Burger />
           </div>
@@ -23,7 +30,7 @@ const Navbar = () => {
 
           <div className={styles.NavItems}>
             {navItems.map((item) => {
-              return <NavItem name={item} />;
+              return <Link key={item} to = {`/${item.toLowerCase()}`}><NavItem name={item} /></Link>;
             })}
             <Dots />
           </div>
@@ -32,17 +39,18 @@ const Navbar = () => {
             <div
               className={styles.searchIcon}
               onClick={(e) => {
+      
                 setSearch(true);
               }}
             >
-              <img
-                src="https://purepng.com/public/uploads/large/search-icon-lob.png"
-                alt=""
-              />
+              <SearchButton width = "25px" height = "auto" fill = "rgb(47, 128, 237) "/>
             </div>
           ) : null}
           <Auth />
-        </div>
+        </div>:<div className = {styles.SearchForSmall}>
+        <Searchbar display={search} width = "90%" />
+        <CloseSearchBar close = {()=>{setSearch(false)}} width = "16px" height = "auto" fill = '#2f80ed' />
+        </div>}
       </Container>
     </div>
   );

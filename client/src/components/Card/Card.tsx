@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Card.module.css";
-import playButton  from './svg/play-button-svgrepo-com.svg'
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
+import BookmarkIcon from './svg/BookmarkIcon'
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
+import StarIcon from './svg/StarIcon'
+import PlayButton from './svg/PlayButton'
 interface Props {
   mainImage: string;
   title: string;
@@ -17,18 +18,18 @@ interface Props {
 export const Card: React.FC<Props> = (props) => {
   return (
     <div className={props.type === "large" ? styles.Card : styles.Small}>
-      <img src={props.mainImage} className={styles.CardImg} alt="" />
 
+      <img src={props.mainImage} className={styles.CardImg} alt="" />
       <div className={styles.playButton}>
-        <img src= {playButton} alt=""/>
+        <PlayButton width="56px" height="auto" stroke="#fff" />
       </div>
 
       <div className={styles.badges}>
         <div className={styles.bookmark}>
-          <BookmarkBorderIcon className={styles.bookmarkIcon} />
+          <BookmarkIcon height={18} width={18} fill="#2f80ed" vertical-allign="middle" />
         </div>
         <div className={styles.rating}>
-          <StarOutlineIcon className={styles.ratingIcon} />
+          <StarIcon height={18} width={18} fill="#2f80ed" />
           <span className={styles.ratingNumber}> {props.details.rating} </span>
         </div>
       </div>

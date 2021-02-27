@@ -7,7 +7,7 @@ const SideDrawer = (props) => {
     let navItems = ["Home", "Catalog", "Pricing", "LIVE"];
     return (
        <>
-       <Backdrop show/>
+       <Backdrop show click = {props.BackdropClick}/>
        <div className ={styles.SideDrawer} >
            
            {navItems.map(item => {

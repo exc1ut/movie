@@ -1,7 +1,7 @@
 import React from 'react';
 
-const burger = () => {
-    const divs =[1,2,3];
+const burger = (props) => {
+    const divs =[3,2,1];
     
     const style = {
         display: 'flex',
@@ -19,9 +19,9 @@ const burger = () => {
         height: '4px',
     }
     return (
-        <div style = {style}>
+        <div style = {style} onClick = {props.click}>
           {divs.map(item => {
-              return <div style ={styleChild}></div>
+              return <span style = {{backgroundColor :'white' , width : `${item*8}px`, height:'2px'}} ></span>
           })}
               
         </div>

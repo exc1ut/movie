@@ -4,9 +4,15 @@ import { Card } from "../components/Card/Card";
 import { FlatButton } from "../components/FlatButton";
 import { Head } from "../components/Head";
 import { HomeCarousel } from "../components/HomeCarousel";
+import { makeStyles } from '@material-ui/core/styles'
 
-interface Props {}
+interface Props { }
 
+const useStyles = makeStyles({
+  Container: {
+    width: '95%'
+  }
+})
 const data = {
   title: "Fast and Furious9",
   details: { genre: "Genre", year: 2021, cost: 0, rating: 9.1 },
@@ -37,7 +43,8 @@ const item = {
   },
 };
 
-export const Main: React.FC<Props> = () => {
+export const Main: React.FC<Props> = (props) => {
+  const classes = useStyles()
   return (
     <>
       <Container maxWidth="lg">
@@ -52,7 +59,7 @@ export const Main: React.FC<Props> = () => {
           </div>
         ))}
       </HomeCarousel>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={classes.Container}>
         <Head title="Popular" />
 
         <motion.div variants={container} initial="hidden" animate="visible">

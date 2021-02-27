@@ -8,9 +8,9 @@
 .Card > .badges {
   display: flex;
   visibility: hidden;
-  margin: 10px;
+  left: 15px;
   position: absolute;
-  top: 1px;
+  top: 22px;
   width: 90%;
   justify-content: space-between;
 }
@@ -21,26 +21,30 @@
   color: blue;
 }
 .Card > .badges > .bookmark {
-  background-color: black;
-  opacity: 0.8;
-  padding: 5px;
-  border-radius: 5px;
-}
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #151f30;
+  border-radius: 10px;
+ }
+ .Card > .badges > .rating{
+   padding: 0 10px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   height: 30px;
+   border-radius: 10px;
+   background-color: rgba(21,31,48,0.75);
+ 
+ }
 .Card > .badges > .rating img {
   width: 20px;
   height: 30px;
 }
 .Card > img:hover ~ .badges {
   visibility: visible;
-}
-.Card > .badges > .rating {
-  padding: 5px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  display: flex;
-  background-color: black;
-  opacity: 0.8;
-  color: white;
 }
 
 .Card .bookmarkIcon,
@@ -62,7 +66,8 @@
 .ratingNumber {
   margin-left: 5px;
   color: white;
-  font-weight: 550;
+  font-size: 14px;
+  font-weight: 500;
 }
 .Card img {
   width: 100%;
@@ -105,23 +110,24 @@
 }
 .Small {
   width: 100%;
-  height: 280px;
+  height: 300px;
   position: relative;
   display: flex;
+ 
   flex-direction: column;
   justify-content: space-between;
 }
 .Small>img {
   width: 100%;
   height: 80%;
-  border-radius: 10px;
+  border-radius: 16px;
   object-fit: cover;
   transition: all 0.4s ease-out;
 }
 .Small .playButton {
   position: absolute;
-  top: 80px;
-  left: 50%;
+  top: 35%;
+  left: 55%;
   width: 80px;
   height: 80px;
   visibility: hidden;
@@ -142,9 +148,11 @@
   justify-content: space-between;
   max-width: 80%;
 }
+.Small:hover {
+  cursor: pointer;
+}
 .Small:hover .CardImg{
   filter: blur(3px);
-  cursor: pointer;
   overflow: hidden;
   transform: scale(1.08);
 }
@@ -159,23 +167,28 @@
   visibility: hidden;
   display: flex;
   justify-content: space-between;
-  margin: 6px;
   position: absolute;
-  top: 2px;
-  width: 95%;
-  transition: 0.3s ease-in-out;
+  top: 4px;
+  left:10px;
+  width: 90%;
+  transition: 0.3s ease-in;
 }
-.Small > .badges > div {
-  background-color: black;
-  padding: 2px;
-  opacity: 0.7;
-  border-radius: 3px;
+.Small > .badges > .bookmark {
+ display: flex;
+ width: 30px;
+ height: 30px;
+ justify-content: center;
+ align-items: center;
+ background-color: #151f30;
+ border-radius: 10px;
+}
+.Small > .badges > .rating{
+  padding: 0 10px;
   display: flex;
-}
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+  border-radius: 10px;
+  background-color: rgba(21,31,48,0.75);
 
-.Small .bookmarkIcon {
-  color: rgb(23, 23, 199);
-}
-.Small .ratingIcon {
-  color: rgb(23, 23, 199);
 }
