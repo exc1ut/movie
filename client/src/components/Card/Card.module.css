@@ -55,16 +55,14 @@
   max-width: 100px;
   max-height: 100px;
 }
-.playButtonMaterial {
-  color: white;
-  width: 100%;
-  height: 100%;
-}
-.Small > img:hover .Small > .playButton {
+
+.Small:hover .Small > .playButton {
   visibility: visible;
 }
 .ratingNumber {
   margin-left: 5px;
+  color: white;
+  font-weight: 550;
 }
 .Card img {
   width: 100%;
@@ -113,7 +111,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.Small img {
+.Small>img {
   width: 100%;
   height: 80%;
   border-radius: 10px;
@@ -144,15 +142,17 @@
   justify-content: space-between;
   max-width: 80%;
 }
-.Small img:hover {
-  filter: blur(4px);
+.Small:hover .CardImg{
+  filter: blur(3px);
   cursor: pointer;
   overflow: hidden;
+  transform: scale(1.08);
 }
-.Small img:hover + .playButton {
+.Small:hover  .playButton {
   visibility: visible;
 }
-.Small img:hover ~ .badges {
+
+.Small:hover  .badges {
   visibility: visible;
 }
 .Small > .badges {
@@ -168,14 +168,14 @@
 .Small > .badges > div {
   background-color: black;
   padding: 2px;
-  opacity: 0.8;
+  opacity: 0.7;
   border-radius: 3px;
   display: flex;
 }
 
 .Small .bookmarkIcon {
-  color: blue;
+  color: rgb(23, 23, 199);
 }
 .Small .ratingIcon {
-  color: blue;
+  color: rgb(23, 23, 199);
 }

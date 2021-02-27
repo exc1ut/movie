@@ -7,7 +7,7 @@ import Auth from "./mini_tools/userAuth";
 import Burger from "./mini_tools/burger";
 import { Container } from "@material-ui/core";
 const Navbar = () => {
-  let navItems = ["Films", "Serials", "Cartoons", "Live"];
+  let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
   const [search, setSearch] = useState(false);
 
   return (

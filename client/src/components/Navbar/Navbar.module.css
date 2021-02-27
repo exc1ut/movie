@@ -1,6 +1,7 @@
 .Header {
     width: 100%;
     padding: 0px;
+    border: 1px solid red;
     }
 
 
@@ -132,7 +133,7 @@
 .tv {
   font-size: 14pt;
   font-weight: 400;
-  color: blue;
+  color: rgb(59, 59, 255);
 }
 .searchIcon {
   display: block;
@@ -157,8 +158,9 @@
     display: flex;
     width: 20px;
     justify-content: space-between;
-    margin-right: 100px;
-    margin-top: 10px;
+    align-items: center;
+    margin-right: 0px;
+    margin-top: 3.5px;
     position: relative;
   }
   .dot {
@@ -293,7 +295,7 @@
 @media (max-width: 450px) {
   .Navbar {
     min-width: 100%;
-    padding: 0;
+    padding: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -301,6 +303,9 @@
   .searchbar {
     min-width: 240px;
     display: none;
+  }
+  .burger{
+      margin-left: 0px;
   }
   .searchVisible {
     outline: none;
@@ -313,12 +318,19 @@
     border: none;
     background-image: url("https://purepng.com/public/uploads/large/search-icon-lob.png");
     background-position: 95% 2px;
-    background-size: 25px 25px;
+    background-size: 22px 22px;
     position: relative;
+    margin-top: 3%;
     background-repeat: no-repeat;
   }
+  .searchIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
   .searchIcon img {
-    width: 75%;
-    height: 75%;
+
+    width: 70%;
+    height:70%;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import playButton  from './svg/play-button-svgrepo-com.svg'
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 interface Props {
@@ -17,10 +17,10 @@ interface Props {
 export const Card: React.FC<Props> = (props) => {
   return (
     <div className={props.type === "large" ? styles.Card : styles.Small}>
-      <img src={props.mainImage} alt="" />
+      <img src={props.mainImage} className={styles.CardImg} alt="" />
 
       <div className={styles.playButton}>
-        <PlayCircleOutlineIcon className={styles.playButtonMaterial} />
+        <img src= {playButton} alt=""/>
       </div>
 
       <div className={styles.badges}>
