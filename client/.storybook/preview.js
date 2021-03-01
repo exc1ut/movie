@@ -9,6 +9,9 @@ import "../src/styles/fonts.css";
 import "slick-carousel/slick/slick.css";
 
 import "slick-carousel/slick/slick-theme.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const customViewports = {
   lg: {
@@ -65,9 +68,11 @@ export const decorators = [muiTheme([theme])];
 
 addDecorator((story) => (
   <Provider store={store}>
-    <StylesProvider injectFirst>
-      <CssBaseline />
-      {story()}
-    </StylesProvider>
+    <QueryClientProvider client={queryClient}>
+      <StylesProvider injectFirst>
+        <CssBaseline />
+        {story()}
+      </StylesProvider>
+    </QueryClientProvider>
   </Provider>
 ));

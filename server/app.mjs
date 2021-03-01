@@ -2,11 +2,13 @@ import express from 'express'
 import morgan from 'morgan'
 import movieRouter from './api/movies.mjs'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 const app = express();
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended :true}));
 app.use(express.json())
+app.use(cors())
 
 
 

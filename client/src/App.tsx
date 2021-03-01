@@ -1,4 +1,3 @@
-
 import { StylesProvider, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "./components/Layout";
@@ -21,7 +20,8 @@ function App() {
           </Switch>
         </Layout>
       </StylesProvider>
-    </ThemeProvider>)
+    </ThemeProvider>
+  );
 }
 
 export default App;

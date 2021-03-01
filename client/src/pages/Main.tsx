@@ -1,7 +1,6 @@
 import { Box, Container, Grid } from "@material-ui/core";
-import { AxiosResponse } from "axios";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
 import { Card } from "../components/Card/Card";
 import { FlatButton } from "../components/FlatButton";
@@ -10,16 +9,6 @@ import { HomeCarousel } from "../components/HomeCarousel";
 import { fetchPopular, fetchTeasers } from "../utilities/queries";
 
 interface Props {}
-
-const template = {
-  title: "Fast and Furious9",
-  details: { genre: "Genre", year: 2021, cost: 0, rating: 9.1 },
-};
-
-function generatePhoto() {
-  const digit = Math.floor(Math.random() * 90000) + 10000;
-  return `https://picsum.photos/200/300?random=${digit}`;
-}
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
