@@ -13,7 +13,7 @@ export default {
 const data = {
     length: "54:14",
     text: "1st series",
-    img: "https://i.ytimg.com/vi/aSiDu3Ywi8E/maxresdefault.jpg",
+    img: "https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg",
 };
 
 const Template: Story<ComponentProps<typeof SeasonCarousel>> = (args) => (
@@ -21,7 +21,7 @@ const Template: Story<ComponentProps<typeof SeasonCarousel>> = (args) => (
         <SeasonCarousel {...args}>
             {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div>
-                    <Box px={4} width="100%" display="flex" justifyContent="center">
+                    <Box px={1} width="100%" display="flex" justifyContent="center">
                         <SeasonCarouselItem {...data}/>
                     </Box>
                 </div>

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     leftActionArrow: {
         position: 'absolute',
         top: '50%',
-        left: -30,
+        left: -60,
         transform: 'translateY(-50%)',
         zIndex: 11111,
         backgroundColor: theme.palette.primary.contrastText,
@@ -26,7 +26,17 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             backgroundColor: theme.palette.primary.light
         }
     },
-    rightActionArrow: {}
+    rightActionArrow: {
+        position: 'absolute',
+        top: '50%',
+        right: -60,
+        transform: 'translateY(-50%)',
+        zIndex: 11111,
+        backgroundColor: theme.palette.primary.contrastText,
+        '&:hover': {
+            backgroundColor: theme.palette.primary.light
+        }
+    }
 }));
 
 function LeftArrow(props: any) {
@@ -41,8 +51,9 @@ function LeftArrow(props: any) {
 function RightArrow(props: any) {
     const {onClick, classes} = props;
     return (
-        <div className={`${classes.rightActionArrow}`} onClick={onClick}>
-        </div>
+        <IconButton className={`${classes.rightActionArrow}`} onClick={onClick}>
+            <ArrowForwardIcon style={{color: "#fff"}} />
+        </IconButton>
     );
 }
 
