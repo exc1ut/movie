@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "title": "Drama",
+        "frequency": "4654",
+        "name_uz": "Drama",
+        "name_ru": "Драма",
+        "name_en": "Drama"
+    },
+    {
+        "id": 2,
+        "title": "Melodrama",
+        "frequency": "1807",
+        "name_uz": "Melodrama",
+        "name_ru": "Мелодрама",
+        "name_en": "Melodrama"
+    },
+    {
+        "id": 3,
+        "title": "Cartoon",
+        "frequency": "764",
+        "name_uz": "Multfilm",
+        "name_ru": "Мультфильм",
+        "name_en": "Cartoon"
+    },
+    {
+        "id": 4,
+        "title": "Anime",
+        "frequency": "268",
+        "name_uz": "Anime",
+        "name_ru": "Аниме",
+        "name_en": "Anime"
+    },
+    {
+        "id": 5,
+        "title": "Fantasy",
+        "frequency": "1318",
+        "name_uz": "Fentezi",
+        "name_ru": "Фэнтези",
+        "name_en": "Fantasy"
+    },
+    {
+        "id": 6,
+        "title": "Adventure",
+        "frequency": "1949",
+        "name_uz": "Sarguzasht",
+        "name_ru": "Приключения",
+        "name_en": "Adventure"
+    },
+    {
+        "id": 7,
+        "title": "Family",
+        "frequency": "1437",
+        "name_uz": "Oilaviy",
+        "name_ru": "Семейный",
+        "name_en": "Family"
+    },
+    {
+        "id": 8,
+        "title": "Comedy",
+        "frequency": "3628",
+        "name_uz": "Komediya",
+        "name_ru": "Комедия",
+        "name_en": "Comedy"
+    },
+    {
+        "id": 9,
+        "title": "Crime",
+        "frequency": "1590",
+        "name_uz": "Jinoyat",
+        "name_ru": "Криминал",
+        "name_en": "Crime"
+    },
+    {
+        "id": 10,
+        "title": "Horror",
+        "frequency": "843",
+        "name_uz": "Dahshat",
+        "name_ru": "Ужасы",
+        "name_en": "Horror"
+    },
+    {
+        "id": 11,
+        "title": "Action movie",
+        "frequency": "2188",
+        "name_uz": "Jangari",
+        "name_ru": "Боевик",
+        "name_en": "Action movie"
+    },
+    {
+        "id": 12,
+        "title": "Thriller",
+        "frequency": "2514",
+        "name_uz": "Triller",
+        "name_ru": "Триллер",
+        "name_en": "Thriller"
+    },
+    {
+        "id": 13,
+        "title": "War",
+        "frequency": "352",
+        "name_uz": "Harbiy",
+        "name_ru": "Военный",
+        "name_en": "War"
+    },
+    {
+        "id": 14,
+        "title": "Biography",
+        "frequency": "478",
+        "name_uz": "Biografiya",
+        "name_ru": "Биография",
+        "name_en": "Biography"
+    },
+    {
+        "id": 15,
+        "title": "Sport",
+        "frequency": "511",
+        "name_uz": "Sport",
+        "name_ru": "Спорт",
+        "name_en": "Sport"
+    },
+    {
+        "id": 19,
+        "title": "Detective",
+        "frequency": "1190",
+        "name_uz": "Detektiv",
+        "name_ru": "Детектив",
+        "name_en": "Detective"
+    },
+    {
+        "id": 20,
+        "title": "Fantasy",
+        "frequency": "1407",
+        "name_uz": "Fantastika",
+        "name_ru": "Фантастика",
+        "name_en": "Fantasy"
+    },
+    {
+        "id": 39,
+        "title": "Story",
+        "frequency": "264",
+        "name_uz": "Tarix ",
+        "name_ru": "История",
+        "name_en": "Story"
+    },
+    {
+        "id": 44,
+        "title": "UFC",
+        "frequency": "335",
+        "name_uz": "UFC",
+        "name_ru": "UFC",
+        "name_en": "UFC"
+    },
+    {
+        "id": 83,
+        "title": "мультфильм",
+        "frequency": "563",
+        "name_uz": "мультфильм",
+        "name_ru": "мультфильм",
+        "name_en": "мультфильм"
+    }
+]

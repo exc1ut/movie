@@ -3,10 +3,25 @@ import { theme } from "../src/config/theme";
 import { addDecorator } from "@storybook/react";
 import { CssBaseline } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/core/styles";
+import store from "../src/store/store";
+import { Provider } from "react-redux";
 import "../src/styles/fonts.css";
 import "slick-carousel/slick/slick.css";
+import { initializeWorker, mswDecorator } from "msw-storybook-addon";
 
 import "slick-carousel/slick/slick-theme.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+initializeWorker();
+addDecorator(mswDecorator);
+
+const mockedQueryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 const customViewports = {
   lg: {
@@ -62,8 +77,17 @@ export const parameters = {
 export const decorators = [muiTheme([theme])];
 
 addDecorator((story) => (
-  <StylesProvider injectFirst>
-    <CssBaseline />
-    {story()}
-  </StylesProvider>
+  <Provider store={store}>
+    <QueryClientProvider client={mockedQueryClient}>
+      <StylesProvider injectFirst>
+        <CssBaseline />
+        {story()}
+      </StylesProvider>
+    </QueryClientProvider>
+  </Provider>
 ));
+
+if (typeof global.process === "undefined") {
+  const { worker } = require("../src/mocks/browser");
+  worker.start();
+}
