@@ -10,7 +10,7 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { AnimateSharedLayout, motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import {
   setGenre,
@@ -99,12 +99,12 @@ export const CatalogNav: React.FC<CatalogNavProps> = ({}) => {
     setYearEl(event.currentTarget);
   };
 
-  const handleYearClose = (e: any, year: number | null = null) => {
+  const handleYearClose = (_, year: number | null = null) => {
     setYearEl(null);
     if (year !== null) dispatch(setYear(year));
   };
 
-  const handleClose = (e: any, genre: IGenre | null = null) => {
+  const handleClose = (_, genre: IGenre | null = null) => {
     setAnchorEl(null);
     if (genre !== null) dispatch(setGenre(genre));
   };

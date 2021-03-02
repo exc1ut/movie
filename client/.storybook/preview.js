@@ -7,11 +7,21 @@ import store from "../src/store/store";
 import { Provider } from "react-redux";
 import "../src/styles/fonts.css";
 import "slick-carousel/slick/slick.css";
+import { initializeWorker, mswDecorator } from "msw-storybook-addon";
 
 import "slick-carousel/slick/slick-theme.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+initializeWorker();
+addDecorator(mswDecorator);
+
+const mockedQueryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 const customViewports = {
   lg: {
@@ -68,7 +78,7 @@ export const decorators = [muiTheme([theme])];
 
 addDecorator((story) => (
   <Provider store={store}>
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={mockedQueryClient}>
       <StylesProvider injectFirst>
         <CssBaseline />
         {story()}
@@ -76,3 +86,8 @@ addDecorator((story) => (
     </QueryClientProvider>
   </Provider>
 ));
+
+if (typeof global.process === "undefined") {
+  const { worker } = require("../src/mocks/browser");
+  worker.start();
+}

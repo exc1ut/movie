@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
 import { Card } from "../components/Card/Card";
+import { CatalogNav } from "../components/CatalogNav";
 import { FlatButton } from "../components/FlatButton";
 import { Head } from "../components/Head";
 import { HomeCarousel } from "../components/HomeCarousel";
@@ -67,7 +68,9 @@ export const Main: React.FC<Props> = () => {
       </HomeCarousel>
       <Container maxWidth="lg">
         <Head title="Popular" />
-
+        <Box pb={3}>
+          <CatalogNav />
+        </Box>
         <Grid
           variants={container}
           initial="hidden"
