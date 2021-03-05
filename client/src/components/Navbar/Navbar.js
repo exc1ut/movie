@@ -14,9 +14,7 @@ const Navbar = () => {
   let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
   const [search, setSearch] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
-  /*burgerCkickHandler = () => {
-    setSideDrawer(true);
-  }*/
+  
   return (
     <div className={styles.Header}>
       <Container>
