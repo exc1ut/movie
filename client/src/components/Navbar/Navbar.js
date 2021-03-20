@@ -6,10 +6,10 @@ import Searchbar from "./mini_tools/searchbar";
 import Auth from "./mini_tools/userAuth";
 import Burger from "./mini_tools/burger";
 import { Container} from "@material-ui/core";
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import SearchButton from './svg/SearchSvg'
 import CloseSearchBar from './mini_tools/CloseSearchBar'
-
+import {BrowserRouter} from 'react-router-dom' 
 const Navbar = () => {
   let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
   const [search, setSearch] = useState(false);
@@ -18,7 +18,8 @@ const Navbar = () => {
     setSideDrawer(true);
   }*/
   return (
-    <div className={styles.Header}>
+    <BrowserRouter>
+      <div className={styles.Header}>
       <Container>
        {!search?<div className={styles.Navbar}>
           <div className={styles.burger}>
@@ -30,7 +31,10 @@ const Navbar = () => {
 
           <div className={styles.NavItems}>
             {navItems.map((item) => {
-              return <Link key={item} to = {`/${item.toLowerCase()}`}><NavItem name={item} /></Link>;
+              return <NavLink 
+              style = {{textDecoration: 'none'}}
+              key={item} 
+              to = {`/${item.toLowerCase()}`}><NavItem name={item} /></NavLink>;
             })}
             <Dots />
           </div>
@@ -49,10 +53,16 @@ const Navbar = () => {
           <Auth />
         </div>:<div className = {styles.SearchForSmall}>
         <Searchbar display={search} width = "90%" />
-        <CloseSearchBar close = {()=>{setSearch(false)}} width = "16px" height = "auto" fill = '#2f80ed' />
+        <CloseSearchBar close = {()=>{setSearch(false)}}
+         width = "16px" 
+         height = "auto" 
+         border = 'none'
+         fill = '#2f80ed'  />
         </div>}
       </Container>
     </div>
+    </BrowserRouter>
+    
   );
 };
 

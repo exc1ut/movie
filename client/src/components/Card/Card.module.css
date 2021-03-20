@@ -5,11 +5,11 @@
   border-radius: 19px;
   overflow: hidden;
 }
-.Card > .badges {
+.Card  .badges {
   display: flex;
-  visibility: hidden;
+  z-index: 100;
   left: 15px;
-  position: absolute;
+  position: relative;
   top: 22px;
   width: 90%;
   justify-content: space-between;
@@ -42,9 +42,6 @@
 .Card > .badges > .rating img {
   width: 20px;
   height: 30px;
-}
-.Card > img:hover ~ .badges {
-  visibility: visible;
 }
 
 .Card .bookmarkIcon,
@@ -130,7 +127,6 @@
   left: 55%;
   width: 80px;
   height: 80px;
-  visibility: hidden;
   transition: 0.3s ease-in-out;
   transform: translateX(-50%);
 }
@@ -141,9 +137,12 @@
 }
 .Small > .movieInfo > .title {
   font-size: 12pt;
+  font-weight: 500;
 }
+
 .Small > .movieInfo > .otherData {
   font-size: 10pt;
+  font-weight: 300;
   display: flex;
   justify-content: space-between;
   max-width: 80%;
@@ -156,22 +155,23 @@
   overflow: hidden;
   transform: scale(1.08);
 }
-.Small:hover  .playButton {
+/* .Small:hover  .playButton {
   visibility: visible;
-}
+} */
 
-.Small:hover  .badges {
+/* .Small:hover  .badges {
   visibility: visible;
-}
+} */
 .Small > .badges {
-  visibility: hidden;
+  
   display: flex;
   justify-content: space-between;
   position: absolute;
   top: 4px;
   left:10px;
   width: 90%;
-  transition: 0.3s ease-in;
+  transition: 0.3s ease-in-out;
+ 
 }
 .Small > .badges > .bookmark {
  display: flex;
@@ -191,4 +191,11 @@
   border-radius: 10px;
   background-color: rgba(21,31,48,0.75);
 
+}
+.Small .imgWrapper {
+  overflow: hidden;
+  border-radius: 12px;
+}
+.Small:hover .imgWrapper {
+  filter: brightness(60%);
 }

@@ -17,10 +17,6 @@ const useStyles = makeStyles({
     width: '95%'
   }
 })
-const data = {
-  title: "Fast and Furious9",
-  details: { genre: "Genre", year: 2021, cost: 0, rating: 9.1 },
-};
 
 function generatePhoto() {
   const digit = Math.floor(Math.random() * 90000) + 10000;
@@ -43,7 +39,7 @@ const item = {
   },
 };
 
-  
+
 export const Main: React.FC<Props> = () => {
   const classes = useStyles()
   const { data: teaser, isLoading } = useQuery("teaser", fetchTeasers);
@@ -63,10 +59,11 @@ export const Main: React.FC<Props> = () => {
   return (
     <>
       <Container maxWidth="lg">
+
         <Head title="Best Movies of this season" />
       </Container>
       <HomeCarousel>
-        {teaser?.data.map((val, index) => (
+        {teaser ? teaser.data.map((val, index) => (
           <div key={index}>
             <Box px={2} width="100%" display="flex" justifyContent="center">
               <Card
@@ -82,7 +79,7 @@ export const Main: React.FC<Props> = () => {
               />
             </Box>
           </div>
-        ))}
+        )) : null}
       </HomeCarousel>
       <Container maxWidth="lg" className={classes.Container}>
         <Head title="Popular" />

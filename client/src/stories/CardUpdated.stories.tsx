@@ -1,15 +1,15 @@
 import { Story } from "@storybook/react/types-6-0";
 import { ComponentProps } from "react";
-import { Card } from "../components/Card/Card";
+import { CardUpdated } from "../components/CardUpdated/CardUpdated";
 import { Grid } from "@material-ui/core"
 // This default export determines where your story goes in the story list
 export default {
-  title: "Card",
-  component: Card,
+    title: "CardUpdated",
+    component: CardUpdated,
 };
 
-const Template: Story<ComponentProps<typeof Card>> = (args) => (
-  <Card {...args} />
+const Template: Story<ComponentProps<typeof CardUpdated>> = (args) => (
+    <Grid container > <Grid item xs={12} sm={4} md={3} lg={2}> <CardUpdated {...args} /> </Grid></Grid>
 );
 
 export const CardSmall = Template.bind({});

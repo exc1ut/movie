@@ -57,11 +57,11 @@ const customViewports = {
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
-    default: "primary",
+    default: "dark",
     values: [
       {
-        name: "primary",
-        value: theme.palette.primary.dark,
+        name: "dark",
+        value: theme.dark,
       },
       {
         name: "light",
