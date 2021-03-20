@@ -1,6 +1,12 @@
-import { Button, createStyles, makeStyles, Theme } from "@material-ui/core";
+import {
+  Button,
+  ButtonProps,
+  createStyles,
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
 
-interface FlatButtonProps {
+interface FlatButtonProps extends ButtonProps {
   title: string;
 }
 
@@ -22,10 +28,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const FlatButton: React.FC<FlatButtonProps> = ({ title }) => {
+export const FlatButton: React.FC<FlatButtonProps> = ({ title, ...rest }) => {
   const classes = useStyles();
   return (
-    <Button className={classes.root} color="primary" variant="contained">
+    <Button
+      className={classes.root}
+      color="primary"
+      variant="contained"
+      {...rest}
+    >
       {title}
     </Button>
   );

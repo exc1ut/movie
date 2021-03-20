@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
 import { StylesProvider, CssBaseline, ThemeProvider } from "@material-ui/core";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { theme } from "./config/theme";
 import { Main } from "./pages";
@@ -10,13 +9,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { FilterPage } from './pages/filter-page';
 import SideDrawer from './components/Navbar/mini_tools/SideDrawer'
 
-interface State {
-  sideDrawer: boolean
-
-}
-interface VoidFunction {
-  sideHandler: (flag: boolean) => void
-}
 function App() {
 
   return (
@@ -24,16 +16,20 @@ function App() {
       <StylesProvider injectFirst>
         <CssBaseline />
         <Layout>
-          <Switch>
-            <Route exact path="/">
-              <Main />
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/">
+                <Main />
 
-            </Route>
-            <Route exact path="/films" component={FilterPage} />
-          </Switch>
+              </Route>
+              <Route exact path="/films" component={FilterPage} />
+            </Switch>
+          </BrowserRouter>
+
         </Layout>
       </StylesProvider>
-    </ThemeProvider>)
+    </ThemeProvider>
+  );
 }
 
 export default App;
