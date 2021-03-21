@@ -91,12 +91,13 @@
   font-size: 11pt;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px;
   color: white;
 }
-.NavItem > .dot {
+.NavItem  .dot {
   margin-top: 3px;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 .NavItems {
   display: none;
@@ -236,7 +237,7 @@
   }
   .NavItem > .dot {
     margin-top: 3px;
-    margin-left: 2px;
+    margin-left: 4px;
   }
   .NavItems {
     display: flex;
@@ -271,7 +272,7 @@
     position: relative;
     border-radius: 50%;
     border: 1px solid black;
-    margin-left: 3px;
+    margin-left: 4px;
     background-color: rgb(209, 32, 32);
   }
   .livedot::after {
@@ -361,9 +362,14 @@
     align-items: center;
     justify-content: space-between;
   }
-  .searchbar {
+  .Logo {
+    display: block;
+    margin-left: 20px;
+  }
+   .searchbar {
     min-width: 240px;
     display: none;
+    
   }
   .burger{
       margin-left: 0px;
