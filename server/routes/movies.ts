@@ -1,9 +1,9 @@
-import express from "express";
-import movies from "../utils/axios.mjs";
+import express, { request } from "express";
+import movies from "../utils/axios";
 
 const router = express.Router();
 
-const encodeQuery = (query) => {
+const encodeQuery = (query: any) => {
   const encodedQuery = Object.keys(query)
     .map((item) => {
       return `${item}=${query[item]}`;
@@ -18,7 +18,8 @@ const encodeQuery = (query) => {
   @type: Get
   @route: /movies/contents
 */
-router.get("/contents", (req, res, next) => {
+
+router.get("/contents", (req, res) => {
   console.log(req.query);
 
   const query =
@@ -44,20 +45,21 @@ router.get("/contents", (req, res, next) => {
   @route: /movies/contents/genres
 */
 
-router.get(`/contents/genres`, (req, res, next) => {
+router.get(`/contents/genres`, (req, res) => {
   const query = req.query;
   const encodedQuery = encodeQuery(query);
   movies
     .get(`/contents/genres?${encodedQuery}`)
     .then((result) => {
       // res.status(200).json(result.data);
-
       return Array.from(result.data.data);
     })
     .then((data) => {
       data.sort((a, b) => {
+        // @ts-ignore
         if (a.id > b.id) {
           return 1;
+          // @ts-ignore
         } else if (a.id < b.id) {
           return -1;
         }

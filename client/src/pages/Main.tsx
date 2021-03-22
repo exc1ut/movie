@@ -7,26 +7,17 @@ import { CatalogNav } from "../components/CatalogNav";
 import { FlatButton } from "../components/FlatButton";
 import { Head } from "../components/Head";
 import { HomeCarousel } from "../components/HomeCarousel";
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from "@material-ui/core/styles";
 import { fetchPopular, fetchTeasers } from "../utilities/queries";
+import usePopular from "../utilities/usePopular";
 
-interface Props { }
+interface Props {}
 
 const useStyles = makeStyles({
   Container: {
-    width: '95%'
-  }
-})
-const data = {
-  title: "Fast and Furious9",
-  details: { genre: "Genre", year: 2021, cost: 0, rating: 9.1 },
-};
-
-function generatePhoto() {
-  const digit = Math.floor(Math.random() * 90000) + 10000;
-  return `https://picsum.photos/200/300?random=${digit}`;
-}
-
+    width: "95%",
+  },
+});
 const container = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -43,22 +34,19 @@ const item = {
   },
 };
 
-  
 export const Main: React.FC<Props> = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   const { data: teaser, isLoading } = useQuery("teaser", fetchTeasers);
   const page = useRef(0);
   console.log(page);
 
-  const popular = useInfiniteQuery("popular", fetchPopular, {
-    getNextPageParam: (lastGroup, allGroups) => {
-      const morePagesExist = lastGroup.data?.length === 18;
-      if (!morePagesExist) return false;
-      return allGroups.length + 1;
-    },
-  });
-
+  const popular = usePopular();
+  console.log(popular)
+  
+  
   if (isLoading) return null;
+  if (popular.isLoading) return null;
+  
 
   return (
     <>
@@ -74,7 +62,7 @@ export const Main: React.FC<Props> = () => {
                 title={val.title}
                 details={{
                   cost: 0,
-                  genre: val.keywords[0].title,
+                  genre: val.keywords.length>0 ? val.keywords[0].title : "",
                   rating: val.rating_imdb,
                   year: parseInt(val.release_time),
                 }}
@@ -115,7 +103,7 @@ export const Main: React.FC<Props> = () => {
                     title={val.title}
                     details={{
                       cost: 0,
-                      genre: val.keywords[0].title,
+                      genre: val.keywords.length>0 ? val.keywords[0].title : "",
                       rating: val.rating_imdb,
                       year: parseInt(val.release_time),
                     }}
