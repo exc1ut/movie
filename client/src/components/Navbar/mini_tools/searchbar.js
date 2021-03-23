@@ -27,7 +27,7 @@ const Searchbar = (props) => {
 				type="text"
 				placeholder="I am looking for ..."
 				className={styles.searchVisible}
-				style={{ opacity: !props.opacity && state < 450 ? 0 : 1 }}
+				style={{ opacity: !props.opacity && state < 601 ? 0 : 1 }}
 			/>
 			<button
 				className={

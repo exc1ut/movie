@@ -258,7 +258,7 @@ ul{
 .home__add {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 5px;
     z-index: 3;
     transition: 0.5s;
     opacity: 0;
@@ -286,7 +286,7 @@ ul{
     align-items: center;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 1%;
     z-index: 3;
     transition: 0.5s;
     opacity: 0;
