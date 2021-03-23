@@ -12,13 +12,10 @@ export const fetchTeasers = () => {
   );
 };
 
-export const fetchPopular = ({ pageParam = 0 }) => {
-  return axios.get<IContent[]>(
-    `/movies/contents?paginate&_lang=en&page=${pageParam}&per-page=18&sort=-top`,
-    {
-      headers: {
-        Accept: "application/xhtml+xml",
-      },
-    }
+export const fetchPopular = async ({ pageParam = 0 }) => {
+  const data = await axios.get<IContent[]>(
+    `/movies/contents?paginate&_lang=en&page=${pageParam}&per-page=18&sort=-top`
   );
+  return data
+  
 };

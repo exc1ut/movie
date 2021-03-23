@@ -1,0 +1,1 @@
+{"version":3,"file":"axios.js","sourceRoot":"","sources":["../../utils/axios.ts"],"names":[],"mappings":";;;;;AAAA,gDAA0B;AAE1B,kBAAe,eAAK,CAAC,MAAM,CAAC;IAC1B,OAAO,EAAE,gCAAgC;IACzC,OAAO,EAAE;QACP,cAAc,EAAE,qCAAqC;QACrD,mCAAmC,EAAE,IAAI;QACzC,MAAM,EAAE,mCAAmC;QAC3C,iBAAiB,EAAE,mBAAmB;QACtC,6BAA6B,EAAE,GAAG;KACnC;CACF,CAAC,CAAC"}
