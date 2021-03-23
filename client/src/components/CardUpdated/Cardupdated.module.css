@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+=======
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
 .card{
     display: flex;
     flex-direction: column;
@@ -258,7 +261,11 @@ ul{
 .home__add {
     position: absolute;
     top: 20px;
+<<<<<<< HEAD
     left: 5px;
+=======
+    left: 20px;
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
     z-index: 3;
     transition: 0.5s;
     opacity: 0;
@@ -286,7 +293,11 @@ ul{
     align-items: center;
     position: absolute;
     top: 20px;
+<<<<<<< HEAD
     right: 1%;
+=======
+    right: 20px;
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
     z-index: 3;
     transition: 0.5s;
     opacity: 0;

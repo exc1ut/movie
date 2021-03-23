@@ -5,6 +5,7 @@ import Dots from "./mini_tools/dot";
 import Searchbar from "./mini_tools/searchbar";
 import Auth from "./mini_tools/userAuth";
 import Burger from "./mini_tools/burger";
+<<<<<<< HEAD
 import { Container } from "@material-ui/core";
 import { BrowserRouter, NavLink } from "react-router-dom";
 import SearchButton from "./svg/SearchSvg";
@@ -163,6 +164,67 @@ const Navbar = () => {
 			</BrowserRouter>
 		</>
 	);
+=======
+import { Container} from "@material-ui/core";
+import {NavLink} from 'react-router-dom';
+import SearchButton from './svg/SearchSvg'
+import CloseSearchBar from './mini_tools/CloseSearchBar'
+import {BrowserRouter} from 'react-router-dom' 
+const Navbar = () => {
+  let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
+  const [search, setSearch] = useState(false);
+  const [sideDrawer, setSideDrawer] = useState(false);
+  /*burgerCkickHandler = () => {
+    setSideDrawer(true);
+  }*/
+  return (
+    <BrowserRouter>
+      <div className={styles.Header}>
+      <Container>
+       {!search?<div className={styles.Navbar}>
+          <div className={styles.burger}>
+            <Burger />
+          </div>
+          <div className={styles.Logo}>
+            FLIX<span className={styles.tv}>TV</span>
+          </div>
+
+          <div className={styles.NavItems}>
+            {navItems.map((item) => {
+              return <NavLink 
+              style = {{textDecoration: 'none'}}
+              key={item} 
+              to = {`/${item.toLowerCase()}`}><NavItem name={item} /></NavLink>;
+            })}
+            <Dots />
+          </div>
+          <Searchbar display={search} />
+          {!search ? (
+            <div
+              className={styles.searchIcon}
+              onClick={(e) => {
+      
+                setSearch(true);
+              }}
+            >
+              <SearchButton width = "25px" height = "auto" fill = "rgb(47, 128, 237) "/>
+            </div>
+          ) : null}
+          <Auth />
+        </div>:<div className = {styles.SearchForSmall}>
+        <Searchbar display={search} width = "90%" />
+        <CloseSearchBar close = {()=>{setSearch(false)}}
+         width = "16px" 
+         height = "auto" 
+         border = 'none'
+         fill = '#2f80ed'  />
+        </div>}
+      </Container>
+    </div>
+    </BrowserRouter>
+    
+  );
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
 };
 
 export default Navbar;

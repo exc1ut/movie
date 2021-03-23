@@ -11,6 +11,7 @@ export default {
 const Template: Story<ComponentProps<typeof CardUpdated>> = (args) => (
     <Grid container > <Grid item xs={12} sm={4} md={3} lg={2}> <CardUpdated {...args} /> </Grid></Grid>
 );
+<<<<<<< HEAD
 const Large: Story<ComponentProps<typeof CardUpdated>> = (args) => (
     <Grid container > <Grid item xs={12} sm={6} md={4} lg={3}> <CardUpdated {...args} /> </Grid></Grid>
 );
@@ -20,3 +21,8 @@ CardLarge.args = { type: 'large', title: 'Fast and Furious9', details: { genre: 
 
 export const CardSmall = Template.bind({});
 CardSmall.args = { type: 'small', title: 'Fast and Furious9', details: { genre: 'Genre', year: 2021, cost: 0, rating: 9.1 }, mainImage: 'https://i.ytimg.com/vi/aSiDu3Ywi8E/maxresdefault.jpg' }
+=======
+
+export const CardSmall = Template.bind({});
+CardSmall.args = { type: 'large', title: 'Fast and Furious9', details: { genre: 'Genre', year: 2021, cost: 0, rating: 9.1 }, mainImage: 'https://i.ytimg.com/vi/aSiDu3Ywi8E/maxresdefault.jpg' }
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7

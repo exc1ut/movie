@@ -7,13 +7,20 @@ import { CatalogNav } from "../components/CatalogNav";
 import { FlatButton } from "../components/FlatButton";
 import { Head } from "../components/Head";
 import { HomeCarousel } from "../components/HomeCarousel";
+<<<<<<< HEAD
 import { makeStyles } from '@material-ui/core/styles'
 import { fetchPopular, fetchTeasers } from "../utilities/queries";
+=======
+import { makeStyles } from "@material-ui/core/styles";
+import { fetchPopular, fetchTeasers } from "../utilities/queries";
+import usePopular from "../utilities/usePopular";
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
 
-interface Props { }
+interface Props {}
 
 const useStyles = makeStyles({
   Container: {
+<<<<<<< HEAD
     width: '95%'
   }
 })
@@ -23,6 +30,11 @@ function generatePhoto() {
   return `https://picsum.photos/200/300?random=${digit}`;
 }
 
+=======
+    width: "95%",
+  },
+});
+>>>>>>> 38701b3efca6d2168fde74814519e26148b0383d
 const container = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -39,13 +51,23 @@ const item = {
   },
 };
 
+<<<<<<< HEAD
 
 export const Main: React.FC<Props> = () => {
   const classes = useStyles()
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 38701b3efca6d2168fde74814519e26148b0383d
+export const Main: React.FC<Props> = () => {
+  const classes = useStyles();
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
   const { data: teaser, isLoading } = useQuery("teaser", fetchTeasers);
   const page = useRef(0);
   console.log(page);
 
+<<<<<<< HEAD
   const popular = useInfiniteQuery("popular", fetchPopular, {
     getNextPageParam: (lastGroup, allGroups) => {
       const morePagesExist = lastGroup.data?.length === 18;
@@ -55,6 +77,15 @@ export const Main: React.FC<Props> = () => {
   });
 
   if (isLoading) return null;
+=======
+  const popular = usePopular();
+  console.log(popular)
+  
+  
+  if (isLoading) return null;
+  if (popular.isLoading) return null;
+  
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
 
   return (
     <>
@@ -71,7 +102,11 @@ export const Main: React.FC<Props> = () => {
                 title={val.title}
                 details={{
                   cost: 0,
+<<<<<<< HEAD
                   genre: val.keywords[0].title,
+=======
+                  genre: val.keywords.length>0 ? val.keywords[0].title : "",
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
                   rating: val.rating_imdb,
                   year: parseInt(val.release_time),
                 }}
@@ -112,7 +147,11 @@ export const Main: React.FC<Props> = () => {
                     title={val.title}
                     details={{
                       cost: 0,
+<<<<<<< HEAD
                       genre: val.keywords[0].title,
+=======
+                      genre: val.keywords.length>0 ? val.keywords[0].title : "",
+>>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
                       rating: val.rating_imdb,
                       year: parseInt(val.release_time),
                     }}
