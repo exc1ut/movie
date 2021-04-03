@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IGenre } from "../../interfaces/genre";
 
-interface ICatalogNav {
+ interface ICatalogNav {
   genre: IGenre | null;
   year: number | null;
   sortBy: "newest" | "popular" | "featured";

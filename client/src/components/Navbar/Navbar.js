@@ -5,13 +5,13 @@ import Dots from "./mini_tools/dot";
 import Searchbar from "./mini_tools/searchbar";
 import Auth from "./mini_tools/userAuth";
 import Burger from "./mini_tools/burger";
-<<<<<<< HEAD
 import { Container } from "@material-ui/core";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchButton from "./svg/SearchSvg";
 import CloseSearchBar from "./mini_tools/CloseSearchBar";
 import { Drawer } from "@material-ui/core";
 import { motion } from "framer-motion";
+//import {Link} from "react-router-dom"
 const Navbar = () => {
 	let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
 	const [search, setSearch] = useState(false);
@@ -33,11 +33,7 @@ const Navbar = () => {
 			>
 				{navItems.map((item) => {
 					return (
-						<NavLink
-							key={item}
-							style={{ textDecoration: "none" }}
-							to={`/${item.toLowerCase()}`}
-						>
+						<Link key={item} to={`/${item.toLowerCase()}`}>
 							<div
 								style={{
 									color: "white",
@@ -48,7 +44,7 @@ const Navbar = () => {
 							>
 								{item}
 							</div>
-						</NavLink>
+						</Link>
 					);
 				})}
 			</div>
@@ -59,172 +55,109 @@ const Navbar = () => {
 	};
 	return (
 		<>
-			<BrowserRouter>
-				<Drawer
-					BackdropProps={{ invisible: true }}
-					elevation={0}
-					anchor="top"
-					open={sideDrawer}
-					onClose={() => {
-						toggleDrawer(false);
-					}}
-				>
-					{List()}
-				</Drawer>
-				<motion.div
-					initial={{
-						y: 0,
-					}}
-					animate={
-						sideDrawer
-							? {
-									y: 180,
-							  }
-							: ""
-					}
-					className={styles.Header}
-				>
-					<Container>
-						{!search ? (
-							<div className={styles.Navbar}>
-								<div
-									style={{ cursor: "pointer" }}
-									className={styles.burger}
-									onClick={() => toggleDrawer(!sideDrawer)}
-								>
-									<Burger />
-								</div>
-
-								<div className={styles.Logo}>
-									FLIX<span className={styles.tv}>TV</span>
-								</div>
-
-								<div className={styles.NavItems}>
-									{navItems.map((item) => {
-										return (
-											<NavLink
-												style={{ textDecoration: "none" }}
-												key={item}
-												to={`/${item.toLowerCase()}`}
-											>
-												<NavItem name={item} />
-											</NavLink>
-										);
-									})}
-									<Dots />
-								</div>
-								<Searchbar />
-								{!search ? (
-									<div
-										className={styles.searchIcon}
-										onClick={(e) => {
-											setSearch(true);
-										}}
-									>
-										<SearchButton
-											width="25px"
-											height="auto"
-											fill="rgb(47, 128, 237) "
-										/>
-									</div>
-								) : null}
-								<Auth />
-							</div>
-						) : (
-							<motion.div
-								initial={{
-									opacity: 0,
-									y: 50,
-								}}
-								animate={
-									search
-										? {
-												opacity: 1,
-												y: 0,
-										  }
-										: {
-												y: 50,
-										  }
-								}
-								className={styles.SearchForSmall}
+			<Drawer
+				BackdropProps={{ invisible: true }}
+				elevation={0}
+				anchor="top"
+				open={sideDrawer}
+				onClose={() => {
+					toggleDrawer(false);
+				}}
+			>
+				{List()}
+			</Drawer>
+			<motion.div
+				initial={{
+					y: 0,
+				}}
+				animate={
+					sideDrawer
+						? {
+								y: 180,
+						  }
+						: ""
+				}
+				className={styles.Header}
+			>
+				<Container>
+					{!search ? (
+						<div className={styles.Navbar}>
+							<div
+								style={{ cursor: "pointer" }}
+								className={styles.burger}
+								onClick={() => toggleDrawer(!sideDrawer)}
 							>
-								<Searchbar width="90%" opacity={search} />
-								<CloseSearchBar
-									close={() => {
-										setSearch(false);
+								<Burger />
+							</div>
+
+							<div className={styles.Logo}>
+								FLIX<span className={styles.tv}>TV</span>
+							</div>
+
+							<div className={styles.NavItems}>
+								{navItems.map((item) => {
+									return (
+										<Link
+											style={{ textDecoration: "none" }}
+											key={item}
+											to="/films"
+										>
+											<NavItem name={item} />
+										</Link>
+									);
+								})}
+								<Dots />
+							</div>
+							<Searchbar />
+							{!search ? (
+								<div
+									className={styles.searchIcon}
+									onClick={(e) => {
+										setSearch(true);
 									}}
-									width="16px"
-									height="auto"
-									fill="#2f80ed"
-								/>
-							</motion.div>
-						)}
-					</Container>
-				</motion.div>
-			</BrowserRouter>
+								>
+									<SearchButton
+										width="25px"
+										height="auto"
+										fill="rgb(47, 128, 237) "
+									/>
+								</div>
+							) : null}
+							<Auth />
+						</div>
+					) : (
+						<motion.div
+							initial={{
+								opacity: 0,
+								y: 50,
+							}}
+							animate={
+								search
+									? {
+											opacity: 1,
+											y: 0,
+									  }
+									: {
+											y: 50,
+									  }
+							}
+							className={styles.SearchForSmall}
+						>
+							<Searchbar width="90%" opacity={search} />
+							<CloseSearchBar
+								close={() => {
+									setSearch(false);
+								}}
+								width="16px"
+								height="auto"
+								fill="#2f80ed"
+							/>
+						</motion.div>
+					)}
+				</Container>
+			</motion.div>
 		</>
 	);
-=======
-import { Container} from "@material-ui/core";
-import {NavLink} from 'react-router-dom';
-import SearchButton from './svg/SearchSvg'
-import CloseSearchBar from './mini_tools/CloseSearchBar'
-import {BrowserRouter} from 'react-router-dom' 
-const Navbar = () => {
-  let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
-  const [search, setSearch] = useState(false);
-  const [sideDrawer, setSideDrawer] = useState(false);
-  /*burgerCkickHandler = () => {
-    setSideDrawer(true);
-  }*/
-  return (
-    <BrowserRouter>
-      <div className={styles.Header}>
-      <Container>
-       {!search?<div className={styles.Navbar}>
-          <div className={styles.burger}>
-            <Burger />
-          </div>
-          <div className={styles.Logo}>
-            FLIX<span className={styles.tv}>TV</span>
-          </div>
-
-          <div className={styles.NavItems}>
-            {navItems.map((item) => {
-              return <NavLink 
-              style = {{textDecoration: 'none'}}
-              key={item} 
-              to = {`/${item.toLowerCase()}`}><NavItem name={item} /></NavLink>;
-            })}
-            <Dots />
-          </div>
-          <Searchbar display={search} />
-          {!search ? (
-            <div
-              className={styles.searchIcon}
-              onClick={(e) => {
-      
-                setSearch(true);
-              }}
-            >
-              <SearchButton width = "25px" height = "auto" fill = "rgb(47, 128, 237) "/>
-            </div>
-          ) : null}
-          <Auth />
-        </div>:<div className = {styles.SearchForSmall}>
-        <Searchbar display={search} width = "90%" />
-        <CloseSearchBar close = {()=>{setSearch(false)}}
-         width = "16px" 
-         height = "auto" 
-         border = 'none'
-         fill = '#2f80ed'  />
-        </div>}
-      </Container>
-    </div>
-    </BrowserRouter>
-    
-  );
->>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
 };
 
 export default Navbar;

@@ -19,19 +19,19 @@ interface Props {
 }
 export const Card: React.FC<Props> = (props) => {
   const [hover, setHover] = useState(false);
-  const getTitle = (title) => {
-    let titleArray: any = [];
-    let newTitle = title.split('');
-    // let newTitle = title.split('').splice(20);
-    for (let item of newTitle) {
-      if (+newTitle.indexOf(item) < 10 && +newTitle.indexOf(item) >= 0) {
-        titleArray.push(item);
-      }
-    }
+  // const getTitle = (title) => {
+  //   let titleArray: any = [];
+  //   let newTitle = title.split('');
+  //   // let newTitle = title.split('').splice(20);
+  //   for (let item of newTitle) {
+  //     if (+newTitle.indexOf(item) < 10 && +newTitle.indexOf(item) >= 0) {
+  //       titleArray.push(item);
+  //     }
+  //   }
 
-    newTitle = titleArray.join('')
-    return `${newTitle}...`;
-  }
+  //   newTitle = titleArray.join('')
+  //   return `${newTitle}...`;
+  // }
   return (
     <div
       onMouseOver={(e) => {
@@ -63,7 +63,7 @@ export const Card: React.FC<Props> = (props) => {
         </div>
       </motion.div>
       <div className={styles.movieInfo}>
-        <div className={styles.title}>{props.title.length <= 22 ? props.title : getTitle(props.title)}</div>
+        <div className={styles.title}>{props.title.length <= 22 ? props.title : ""/*getTitle(props.title)}*/}</div>
         <div className={styles.otherData}>
           <div>{props.details.genre}</div>
           <div>{props.details.cost}</div>

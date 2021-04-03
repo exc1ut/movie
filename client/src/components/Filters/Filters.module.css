@@ -1,0 +1,20 @@
+.DropDown {
+    position:absolute;
+    background-color: black;
+    z-index: 100;
+    color: white; 
+    overflow-y: scroll;
+    max-height: 200px; 
+    font-size: 13pt;
+    width: 220px;
+    background-color: #001c33;
+
+}
+.DropDown div {
+    margin: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.DropDown::-webkit-scrollbar {
+    width: 0;
+}   

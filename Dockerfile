@@ -6,9 +6,9 @@ COPY ./client ./client
 
 WORKDIR /usr/src/app/client
 
-RUN npm install
+RUN yarn
 
-RUN npm run build
+RUN yarn  build
 
 WORKDIR /usr/src/app
 
@@ -18,7 +18,7 @@ WORKDIR /usr/src/app/server
 
 COPY ./server .
 
-RUN npm install
+RUN yarn
 
 EXPOSE 9000
 

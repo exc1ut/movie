@@ -1,7 +1,6 @@
-<<<<<<< HEAD
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-=======
->>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
+
 .card{
     display: flex;
     flex-direction: column;
@@ -191,7 +190,7 @@ ul{
 /* Large */
 .home__card {
     display: block;
-    width: 290px;
+    width: 500px;
     transition: 0.5s;
     overflow: hidden;
     position: relative;
@@ -216,8 +215,8 @@ ul{
 .home__card img {
     display: block; 
     position: relative;
-    height: 329px;
     width: 100%;
+    height: 350px;
     z-index: 1;
     transition: 0.5s;
     object-fit: cover;
@@ -239,11 +238,17 @@ ul{
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 10px;
     pointer-events: none;
+}
+.dif h2 {
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 15px;
 }
 .home__card:hover .dif h2 {
     color: #2f80ed;
+    font-weight: 500;
 }
 .home__card .dif ul {
     display: flex;
@@ -261,11 +266,7 @@ ul{
 .home__add {
     position: absolute;
     top: 20px;
-<<<<<<< HEAD
     left: 5px;
-=======
-    left: 20px;
->>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
     z-index: 3;
     transition: 0.5s;
     opacity: 0;
@@ -293,11 +294,8 @@ ul{
     align-items: center;
     position: absolute;
     top: 20px;
-<<<<<<< HEAD
     right: 1%;
-=======
-    right: 20px;
->>>>>>> 245b1c9da88e39f4b42c3255a1fb9d7c20d1abf7
+
     z-index: 3;
     transition: 0.5s;
     opacity: 0;
@@ -329,28 +327,19 @@ ul{
     pointer-events: auto;
     transform: scale(1);
 }
-@media (min-width: 1440px){
-.home__card {
-    width: 413.333333px;
-}
-}
-@media (min-width: 1200px){
-.home__card {
-    width: 350px;
-}
-}
-@media (min-width: 768px)
-{
+
+@media (min-width: 400px){
     .home__card {
-    width: 450px;
-}
-.home__rating svg {
-    width: 18px;
-}
-.home__rating {
-    font-size: 14px;
+    width: 340px;
 }
 }
+@media (min-width: 360px){
+    .home__card {
+        width: 320px;
+    }
+    
+}
+
 @media (min-width: 576px){
     .home__card {
     width: 360px;
@@ -371,19 +360,31 @@ ul{
     right: 30px;
 }
     }
-@media (min-width: 400px){
+
+
+@media (min-width: 768px)
+{
     .home__card {
-    width: 340px;
+    width: 450px;
+}
+.home__rating svg {
+    width: 18px;
+}
+.home__rating {
+    font-size: 14px;
 }
 }
-@media (min-width: 360px){
+@media (min-width: 1200px){
     .home__card {
-        width: 320px;
+        width: 350px;
     }
-    
-}
+    }
 
-
+@media (min-width: 1440px){
+    .home__card {
+        width: 414px;
+    }
+    }
 
 
 @media (min-width: 768px){

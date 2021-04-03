@@ -2,7 +2,7 @@ import { StylesProvider, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { theme } from "./config/theme";
-import { Main } from "./pages";
+import { MainC } from "./pages/Main";
 import "./styles/fonts.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,18 +15,20 @@ function App() {
     <ThemeProvider theme={theme}>
       <StylesProvider injectFirst>
         <CssBaseline />
-        <Layout>
-          <BrowserRouter>
+        <BrowserRouter>
+
+          <Layout>
+
             <Switch>
               <Route exact path="/">
-                <Main />
-
+                <MainC />
               </Route>
               <Route exact path="/films" component={FilterPage} />
             </Switch>
-          </BrowserRouter>
 
-        </Layout>
+
+          </Layout>
+        </BrowserRouter>
       </StylesProvider>
     </ThemeProvider>
   );
