@@ -1,3 +1,4 @@
+
 export interface IContent {
   id: number;
   title: string;
@@ -30,7 +31,15 @@ export interface IContent {
   season_number?: any;
   episode_number?: any;
 }
-
+export interface IResponse {
+  response : IContent[],
+  meta : {
+    currentPage: number,
+    pageCount: number,
+    perPage: number
+    totalCount: number
+  }
+}
 interface Files {
   ru: string;
   en: string;

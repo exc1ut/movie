@@ -34,8 +34,10 @@ router.get("/contents", (req, res, next) => {
 	movies
 		.get(`/contents${query}`)
 		.then((result) => {
-			console.log("result: " + JSON.stringify(result.data));
-			res.status(200).json(result.data.data);
+			res.status(200).json({
+				response: result.data.data,
+				meta: result.data._meta,
+			});
 		})
 		.catch((err) => {
 			res.send(err);

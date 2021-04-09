@@ -9,7 +9,7 @@ import { AppState, useAppDispatch, useAppSelector } from "../../store/store"
 import { SortMap } from "./SortMap"
 import { GenreMap } from "./Maps";
 import { IGenre } from "../../interfaces/genre"
-import { setGenre } from '../../store/reducers/catalogNav';
+import { setGenre, setSort, setLanguage, setQuality, setGenreID } from '../../store/reducers/catalogNav';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { ContactSupportTwoTone } from '@material-ui/icons';
 import styles from "./Filters.module.css"
@@ -55,34 +55,48 @@ const useStyles = makeStyles(
             margin: 0,
             width: "175px"
 
+        },
+        Selected: {
+            backgroundColor: "#112e4c",
+            color: "#fff",
+            border: "none",
+            outline: "none",
+            margin: 0,
         }
-
     }
 );
 
 
 const Filters: React.FC<Props> = () => {
     const classes = useStyles();
+    const languages = ["Russian", "Uzbek", "English"];
+    const quality = ["SD", "HD", "FULLHD"];
     const [selectedGenre, setSelectedGenre] = useState("");
     const [selectedSort, setSelectedSort] = useState("");
     const [openGenres, setOpenGenres] = useState(false);
     const [openSort, setOpenSort] = useState(false);
     const genreRef = useRef<HTMLDivElement>(null);
     const sortRef = useRef<HTMLDivElement>(null);
+    const [qualityState, setQualityState] = useState("");
+    const [langState, setLangState] = useState("");
     const [options, setOptions] = useState<string[]>([]);
+    const genreObj = GenreMap();
+    const sortMap = SortMap();
     const genres = Object.keys(GenreMap());
     const sorts = Object.keys(SortMap());
 
 
     const dispatch = useDispatch();
-    const pickedGenre = useAppSelector((state: AppState) => {
+    const pickedFilter = useAppSelector((state: AppState) => {
         return state;
     });
-    // console.log(`pickedGenre : ${pickedGenre.catalogNav.genre}`);
+
     useEffect(() => {
-        setOptions(genres);
-        console.log(options);
-    }, []);
+        if (genres.length == 59) {
+            setOptions(genres);
+        }
+        console.log("options: " + options);
+    }, [genres.length]);
 
     const toggleGenres = () => {
         setOpenGenres(!openGenres);
@@ -93,14 +107,23 @@ const Filters: React.FC<Props> = () => {
         setOpenSort(!openSort);
 
     }
+    const handleLanguage = (index) => {
+        setLangState(languages[index]);
+        dispatch(setLanguage(languages[index]));
+    }
+    const handleQuality = (index) => {
+        setQualityState(quality[index]);
+        dispatch(setQuality(quality[index]));
+    }
     const handleMenuItemClickGenres = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
-        setSelectedGenre(options[index]);
+
         dispatch(setGenre(options[index]));
+        dispatch(setGenreID(genreObj[options[index]]));
         setOpenGenres(false);
     }
     const handleMenuItemClickSort = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
-        setSelectedSort(options[index]);
-        //  dispatch(setGenre(options[index]));
+        setSelectedSort(sorts[index]);
+        dispatch(setSort(sortMap[sorts[index]]));
         setOpenSort(false);
     }
     const [filter, setFilter] = useState<State>({
@@ -127,22 +150,28 @@ const Filters: React.FC<Props> = () => {
             <Grid container spacing={2}>
                 <Grid item lg={3} xs={12}>
                     <ButtonGroup variant="text" css={{ boder: "none" }}>
-                        <Button className={classes.Button}>Uzbek</Button>
-                        <Button className={classes.Button}>Russian</Button>
-                        <Button className={classes.Button}>English</Button>
+                        {languages.map((item, index) => {
+                            return <Button
+                                className={item === langState ? classes.Selected : classes.Button}
+                                onClick={() => handleLanguage(index)}
+                            >{item}</Button>
+                        })}
                     </ButtonGroup>
                 </Grid>
                 <Grid item lg={2} xs={12}>
                     <ButtonGroup variant="text">
-                        <Button className={classes.Button}>SD</Button>
-                        <Button className={classes.Button}>FullHD</Button>
-                        <Button className={classes.Button}>HD</Button>
+                        {quality.map((item, index) => {
+                            return <Button
+                                className={item === qualityState ? classes.Selected : classes.Button}
+                                onClick={() => handleQuality(index)}
+                            >{item}</Button>
+                        })}
                     </ButtonGroup>
                 </Grid>
                 <Grid item xs={12} lg={3}>
                     <ButtonGroup>
                         <Button size="large" className={classes.ButtonLarge}>
-                            {pickedGenre ? pickedGenre.catalogNav.genre : "Genres"} </Button>
+                            {pickedFilter.catalogNav.genre ? pickedFilter.catalogNav.genre : "Genres"} </Button>
                         <Button
                             size="small"
                             className={classes.ToggleButton}
@@ -162,9 +191,9 @@ const Filters: React.FC<Props> = () => {
                             height: 300,
                             y: 0
                         } : { opacity: 0, height: 0, y: 0 }}>
-                        {options.map((item, index) => {
+                        {options.length == 59 ? options.map((item, index) => {
                             return <div onClick={(e) => { handleMenuItemClickGenres(e, index) }}>{item}</div>
-                        })}
+                        }) : null}
                     </motion.div>
                 </Grid>
                 <Grid item xs={12} lg={3} style={{ position: "relative" }}>

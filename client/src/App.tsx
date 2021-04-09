@@ -24,10 +24,12 @@ function App() {
                 <MainC />
               </Route>
               <Route exact path="/films" component={FilterPage} />
+
             </Switch>
 
 
           </Layout>
+
         </BrowserRouter>
       </StylesProvider>
     </ThemeProvider>

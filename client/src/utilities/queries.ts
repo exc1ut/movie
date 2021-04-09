@@ -1,21 +1,24 @@
 import axios from "axios";
-import { IContent } from "../interfaces/IContent";
+import { IResponse,IContent } from "../interfaces/IContent";
 
-export const fetchTeasers = () => {
-  return axios.get<IContent[]>(
+
+export const fetchTeasers =  async () => {
+ const data = await axios.get(
     "/movies/contents?paginate&_lang=en&page=1&per-page=5&sort=-recent",
-    {
-      headers: {
-        Accept: "application/xhtml+xml",
-      },
-    }
-  );
+    // {
+    //   headers: {
+    //     Accept: "application/xhtml+xml",
+    //   },
+    // }
+  )
+  return data.data;
 };
 
 export const fetchPopular = async ({ pageParam = 0 }) => {
-  const data = await axios.get<IContent[]>(
+  const data = await axios.get(
     `/movies/contents?paginate&_lang=en&page=${pageParam}&per-page=18&sort=-top`
   );
-  return data
+  console.log("pages : " + data.data);
+  return data.data
   
 };

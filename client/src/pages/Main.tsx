@@ -41,13 +41,14 @@ const item = {
 const Main: React.FC<Props> = () => {
   const classes = useStyles()
 
-  const { data: teaser, isLoading } = useQuery("teaser", fetchTeasers);
+  const teaser = useQuery("teaser", fetchTeasers);
+  console.log("Teaser: " + teaser)
   const page = useRef(0);
   console.log(page);
 
   const popular = useInfiniteQuery("popular", fetchPopular, {
     getNextPageParam: (lastGroup, allGroups) => {
-      const morePagesExist = lastGroup.data?.length === 18;
+      const morePagesExist = lastGroup.length === 18;
       if (!morePagesExist) return false;
       return allGroups.length + 1;
     },
@@ -67,7 +68,7 @@ const Main: React.FC<Props> = () => {
         <Head title="Best Movies of this season" />
       </Container>
       <HomeCarousel>
-        {teaser ? teaser.data.map((val, index) => (
+        {teaser ? teaser.data.response.map((val, index) => (
           <div key={index}>
             <Box px={1} width="100%" display="flex" justifyContent="center">
               <CardUpdated
@@ -102,7 +103,7 @@ const Main: React.FC<Props> = () => {
         >
           {popular.data?.pages.map((group, i) => (
             <>
-              {group.data.map((val) => (
+              {group.response.map((val) => (
                 <Grid
                   variants={item}
                   component={motion.div}
