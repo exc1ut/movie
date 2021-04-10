@@ -18,6 +18,10 @@
     border: none;
     background-color: #151f30;
 }
+.NavItem:hover {
+  cursor: pointer;
+ color : #1122dd
+}
 .searchButton {
   visibility: hidden;
 }
@@ -80,6 +84,7 @@
   background-color: #151f30;
   justify-self: center;
   align-self: center;
+  margin-left: 40px;
   border: none;
  
 
@@ -92,16 +97,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  margin: 8px;
   color: white;
 }
 .NavItem  .dot {
   margin-top: 3px;
   margin-left: 4px;
 }
+
 .NavItems {
   display: none;
-  width: 500px;
+  margin-right: 15px;
+  width: 600px;
   justify-content: space-between;
 }
 .Auth {
@@ -159,7 +166,11 @@
 }
 @media(min-width: 1000px){
   .NavItems{
-    width: 500px;
+    width: 600px;
+  }
+  .NavItem:hover {
+    cursor: pointer;
+   color : #1122dd
   }
 }
 @media (min-width: 800px) {
@@ -181,13 +192,17 @@
      height: 20px;
      
  }
+ .NavItem:hover {
+  cursor: pointer;
+ color : #1122dd
+}
  .searchButton {
    visibility: hidden;
  }
   .Navbar {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color: white;
     align-items: center;
     padding: 15px;
@@ -224,6 +239,7 @@
     border: none;
     justify-self: center;
     align-self: center;
+    margin-left: 40px;
   
   }
   .searchbar::placeholder {
@@ -241,11 +257,12 @@
   }
   .NavItems {
     display: flex;
-    width: 440px;
+    margin-right: 15px;
+    width: 600px;
     justify-content: space-between;
   }
   .Auth {
-    margin-left: 30px;
+    margin-left: 20px;
     width: 100px;
     display: flex;
     align-items: center;
@@ -333,7 +350,7 @@
   }
   .Auth {
     display: flex;
-    margin-left: 30px;
+    margin-left: 20px;
     padding: 0;
   }
   .searchIcon {
@@ -382,7 +399,8 @@
   width: 100%;
   height: 40px;
   border-radius: 8px;
-  background-color: #151f30;;
+  background-color: #151f30;
+  margin-left: 40px;
   border: none;
   
 

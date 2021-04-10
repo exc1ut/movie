@@ -15,10 +15,11 @@ const Pagination = ({ pageCount }) => {
     const dispatch = useDispatch();
     console.log("CP: " + storeState.catalogNav.currentPage);
     const currentPage = storeState.catalogNav.currentPage;
-
-    const pagArray = new Array(number).fill(1);
+    const quantity = number;
+    const pagArray = new Array(quantity).fill(1);
     return (
         <div className={classes.Pagination}>
+
             {pagArray.map((item, index) => {
                 return <div
                     onClick={() => dispatch(setCurrentPage(index + 1))}

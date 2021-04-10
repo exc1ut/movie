@@ -7,7 +7,7 @@ interface Props {
     title: string;
     details: {
         rating: number;
-        cost: number;
+        cost: number | string;
         year: number;
         genre: string;
     };

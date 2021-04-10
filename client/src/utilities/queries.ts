@@ -11,6 +11,7 @@ export const fetchTeasers =  async () => {
     //   },
     // }
   )
+  console.log("Fetched teaser" + data.data);
   return data.data;
 };
 

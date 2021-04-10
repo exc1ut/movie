@@ -6,12 +6,13 @@ import { IGenre } from "../../interfaces/genre";
   year: number | null;
   sortBy: "newest" | "popular" | "featured";
   selectedSlider: "Feature" | "Popular" | "Newest";
-  quality : number;
-  language: number;
+  quality : number|null;
+  language: number|null;
   currentPage: number,
-  contentType:number,
+  contentType:number|null,
   sort:string,
-  genreId:number
+  genreId:number|null,
+  pageCount : number,
 }
 
 const initialState: ICatalogNav = {
@@ -19,12 +20,13 @@ const initialState: ICatalogNav = {
   year: null,
   sortBy: "newest",
   selectedSlider: "Newest",
-  quality:1,
-  language:2,
+  quality: null,
+  language:null,
   currentPage : 1,
   contentType : 1,
   sort: "top",
-  genreId: 1,
+  genreId: null,
+  pageCount:10,
 };
 
 const catalogNav = createSlice({
@@ -40,7 +42,8 @@ const catalogNav = createSlice({
     setCurrentPage: (state,action) => void(state.currentPage = action.payload),
     setContetntType : (state,action) => void(state.contentType = action.payload),
     setSort: (state,action)=> void(state.sort = action.payload),
-    setGenreID:(state,action) =>void(state.genreId = action.payload)
+    setGenreID:(state,action) =>void(state.genreId = action.payload),
+    setPageCount:(state,action) => void(state.pageCount = action.payload) 
   },
 });
 
@@ -56,5 +59,6 @@ export const {
   setCurrentPage,
   setContetntType,
   setSort,
-  setGenreID
+  setGenreID,
+  setPageCount
 } = catalogNav.actions;

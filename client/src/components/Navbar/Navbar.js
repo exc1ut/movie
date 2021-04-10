@@ -13,7 +13,15 @@ import { Drawer } from "@material-ui/core";
 import { motion } from "framer-motion";
 //import {Link} from "react-router-dom"
 const Navbar = () => {
-	let navItems = ["Films", "Serials", "Cartoons", "LIVE"];
+	let navItems = [
+		"Films",
+		"Serials",
+		"Cartoons",
+		"Sport",
+		"Culture",
+		"Education",
+		"LIVE",
+	];
 	const [search, setSearch] = useState(false);
 	const [sideDrawer, setSideDrawer] = useState(false);
 
@@ -89,10 +97,11 @@ const Navbar = () => {
 							>
 								<Burger />
 							</div>
-
-							<div className={styles.Logo}>
-								FLIX<span className={styles.tv}>TV</span>
-							</div>
+							<Link to="/" style={{ textDecoration: "none", color: "white" }}>
+								<div className={styles.Logo}>
+									FLIX<span className={styles.tv}>TV</span>
+								</div>{" "}
+							</Link>
 
 							<div className={styles.NavItems}>
 								{navItems.map((item) => {
@@ -100,7 +109,7 @@ const Navbar = () => {
 										<Link
 											style={{ textDecoration: "none" }}
 											key={item}
-											to="/films"
+											to={`/${item.toLowerCase()}`}
 										>
 											<NavItem name={item} />
 										</Link>
@@ -123,7 +132,9 @@ const Navbar = () => {
 									/>
 								</div>
 							) : null}
-							<Auth />
+							<Link to="/signin">
+								<Auth />
+							</Link>
 						</div>
 					) : (
 						<motion.div

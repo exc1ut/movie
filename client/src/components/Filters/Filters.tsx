@@ -9,11 +9,13 @@ import { AppState, useAppDispatch, useAppSelector } from "../../store/store"
 import { SortMap } from "./SortMap"
 import { GenreMap } from "./Maps";
 import { IGenre } from "../../interfaces/genre"
-import { setGenre, setSort, setLanguage, setQuality, setGenreID } from '../../store/reducers/catalogNav';
+import { setGenre, setSort, setLanguage, setQuality, setGenreID, setCurrentPage } from '../../store/reducers/catalogNav';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { ContactSupportTwoTone } from '@material-ui/icons';
 import styles from "./Filters.module.css"
-interface Props { }
+interface Props {
+    ctype: number
+}
 interface State {
     genre: {
         type: string,
@@ -67,7 +69,10 @@ const useStyles = makeStyles(
 );
 
 
-const Filters: React.FC<Props> = () => {
+const Filters: React.FC<Props> = ({ ctype }) => {
+
+    //console.log("Filterpage rendering!!");
+
     const classes = useStyles();
     const languages = ["Russian", "Uzbek", "English"];
     const quality = ["SD", "HD", "FULLHD"];
@@ -92,6 +97,12 @@ const Filters: React.FC<Props> = () => {
     });
 
     useEffect(() => {
+        if (pickedFilter.catalogNav.currentPage !== 1) {
+            dispatch(setCurrentPage(1));
+        }
+    }, [pickedFilter.catalogNav.genre, pickedFilter.catalogNav.quality, pickedFilter.catalogNav.language, pickedFilter.catalogNav.sort]);
+
+    useEffect(() => {
         if (genres.length == 59) {
             setOptions(genres);
         }
@@ -109,11 +120,11 @@ const Filters: React.FC<Props> = () => {
     }
     const handleLanguage = (index) => {
         setLangState(languages[index]);
-        dispatch(setLanguage(languages[index]));
+        dispatch(setLanguage(index + 1));
     }
     const handleQuality = (index) => {
         setQualityState(quality[index]);
-        dispatch(setQuality(quality[index]));
+        dispatch(setQuality(index + 1));
     }
     const handleMenuItemClickGenres = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
 

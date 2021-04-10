@@ -1,0 +1,200 @@
+.Form {
+    background-color: #111727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 30px 20px;
+    position: relative;
+    width: 100%;
+    width: 400px;
+    border: 1px solid #151f30;
+}
+.formCheckbox{
+    width: 100%;
+    text-align: left;
+}
+/* .formCheckbox input:not(:checked), .formCheckbox input:checked {
+    position: absolute;
+    left: -9999px;
+} */
+
+.formCheckbox input:not(:checked) + label, .formCheckbox input:checked + label {
+    font-size: 14px;
+    color: #e0e0e0;
+    font-weight: normal;
+    position: relative;
+    cursor: pointer;
+    padding-left: 35px;
+    line-height: 22px;
+    margin: 0;
+}
+.delimiter{
+        font-size: 14px;
+        color: #e0e0e0;
+        line-height: 100%;
+}
+.Button {
+   
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 15px auto;
+        width: 100%;
+        height: 50px;
+        border-radius: 16px;
+        background-color: #2f80ed;
+        font-size: 14px;
+        color: #e0e0e0;
+        text-transform: uppercase;
+        font-weight: 500;
+}
+.Button:hover {
+    cursor: pointer;
+    color: #151f30;
+    background-color: #fff;
+ 
+}
+/* .formCheckbox input:not(:checked) + label:before, .formCheckbox input:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background-color: #151f30;
+    border: 1px solid transparent;
+    border-radius: 8px;
+} */
+/* .formCheckbox input:not(:checked) + label:after, .formCheckbox input:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    transition: 0.5s;
+    background: url(../images/check.svg) no-repeat center/12px auto;
+    border-radius: 8px;
+} */
+label {
+    display: inline-block;
+}
+/* input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+} */
+.signLogo{
+    display: block;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.formGroup{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        position: relative;
+        margin-bottom: 20px;
+        width: 100%;    
+}
+.formInput {
+    background-color: #151f30;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    height: 44px;
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+    padding: 0 20px;
+   outline: none;
+}
+.formInput:focus {
+   
+        background-color: #151f30;
+        border-color: #2f80ed;
+}
+.Social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.Social a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: calc(33% - 10px);
+    border-radius: 16px;
+    color: #fff;
+}
+.Social a.google svg {
+    width: 18px;
+}
+.Social a.twitter svg {
+    width: 18px;
+}
+.Social a.facebook svg {
+    width: 10px;
+}
+.Social a:hover {
+    background-color: white;
+}
+.Social a:hover.facebook svg {
+    fill: #3b5999;
+}
+.Social a:hover.google svg {
+    fill: #df4a32;;
+}
+.Social a:hover.twitter svg {
+    fill: #1da1f2;
+}
+.Social a svg {
+    height: auto;
+    fill: #fff;
+    transition: 0.5s;
+}
+.facebook{
+    background-color: #3b5999;
+}
+.twitter {
+    background-color: #1da1f2;
+}
+.google {
+  background-color: #df4a32;;
+}
+.text {
+    margin-top: 15px;
+    font-size: 12pt;
+    line-height: 1.3;
+    color: #e0e0e0;
+}
+.text a{
+    position: relative;
+    color: #2f80ed;
+    text-decoration: none;
+}
+.text a:hover {
+    text-decoration: underline;
+}
+@media (min-width: 576px)
+{
+    .signLogo {
+        margin-bottom: 40px;
+    }
+    .Form {
+    padding: 40px;
+    }
+}
+
