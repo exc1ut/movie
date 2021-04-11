@@ -12,16 +12,7 @@ import { initializeWorker, mswDecorator } from "msw-storybook-addon";
 import "slick-carousel/slick/slick-theme.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-initializeWorker();
-addDecorator(mswDecorator);
-
-const mockedQueryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 const customViewports = {
   lg: {
@@ -77,6 +68,7 @@ export const parameters = {
 export const decorators = [muiTheme([theme])];
 
 addDecorator((story) => (
+<<<<<<< HEAD
   <Provider store={store}>
     <QueryClientProvider client={mockedQueryClient}>
       <StylesProvider injectFirst>
@@ -85,6 +77,16 @@ addDecorator((story) => (
       </StylesProvider>
     </QueryClientProvider>
   </Provider>
+=======
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <StylesProvider injectFirst>
+          <CssBaseline />
+          {story()}
+        </StylesProvider>
+      </QueryClientProvider>
+    </Provider>
+>>>>>>> c06ac145bbef451aa3e9c3158488eefdf1db9931
 ));
 
 if (typeof global.process === "undefined") {

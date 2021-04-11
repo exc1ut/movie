@@ -1,4 +1,29 @@
-export interface IContent {
+export interface RootObject {
+  item: Item;
+  seria: Episode;
+  recommend: Recommend[];
+}
+
+interface Recommend {
+  id: number;
+  views: number;
+  age: number;
+  files: Files;
+  title: string;
+  slogan: string;
+  description: string;
+  budget: number | string;
+  country: Country[];
+  release_time: string;
+  poster_160: string;
+  poster_320: string;
+  keywords: Keyword[];
+  rating_imdb: string;
+  rating_kinopoisk: string;
+  is_serial: boolean;
+}
+
+interface Item {
   id: number;
   title: string;
   budget: string;
@@ -11,7 +36,7 @@ export interface IContent {
   show: boolean;
   lang: Lang;
   trailers: any[];
-  video_quality: number;
+  video_quality: string;
   audio_quality: string;
   persons: any[];
   content_type: number;
@@ -27,8 +52,27 @@ export interface IContent {
   awards: any[];
   is_serial: boolean;
   files: Files;
-  season_number?: any;
-  episode_number?: any;
+  seasons: Season[];
+  last_season_released_at: number;
+}
+
+interface Season {
+  id: number;
+  release_time: string;
+  serial_id: number;
+  season_number: number;
+  views: number;
+  title: string;
+  episodes: Episode[];
+}
+
+interface Episode {
+  id: number;
+  episode_number: number;
+  season_number: number;
+  title: string;
+  files: Files;
+  views: number;
 }
 
 interface Files {
@@ -52,7 +96,6 @@ interface Keyword {
 
 interface Lang {
   ru: string;
-  en?: string;
 }
 
 interface Country {

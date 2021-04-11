@@ -1,7 +1,6 @@
 import { Story } from "@storybook/react/types-6-0";
 import { ComponentProps } from "react";
 import { CatalogNav } from "../components/CatalogNav";
-import { rest } from "msw";
 
 // This default export determines where your story goes in the story list
 export default {

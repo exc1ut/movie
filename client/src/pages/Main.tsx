@@ -1,28 +1,37 @@
 import { Box, Container, Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useInfiniteQuery, useQuery } from "react-query";
 import { Card } from "../components/Card/Card";
-import { CatalogNav } from "../components/CatalogNav";
 import { FlatButton } from "../components/FlatButton";
 import { Head } from "../components/Head";
 import { HomeCarousel } from "../components/HomeCarousel";
-import { makeStyles } from "@material-ui/core/styles";
-import { fetchPopular, fetchTeasers } from "../utilities/queries";
-import usePopular from "../utilities/usePopular";
+import { makeStyles } from '@material-ui/core/styles'
 
-interface Props {}
+interface Props { }
 
 const useStyles = makeStyles({
   Container: {
-    width: "95%",
-  },
-});
+    width: '95%'
+  }
+})
+const data = {
+  title: "Fast and Furious9",
+  details: { genre: "Genre", year: 2021, cost: 0, rating: 9.1 },
+};
+
+function generatePhoto() {
+  const digit = Math.floor(Math.random() * 90000) + 10000;
+  return `https://picsum.photos/200/300?random=${digit}`;
+}
+
 const container = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
     opacity: 1,
     scale: 1,
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.08,
+    },
   },
 };
 
@@ -34,92 +43,39 @@ const item = {
   },
 };
 
-export const Main: React.FC<Props> = () => {
-  const classes = useStyles();
-  const { data: teaser, isLoading } = useQuery("teaser", fetchTeasers);
-  const page = useRef(0);
-  console.log(page);
-
-  const popular = usePopular();
-  console.log(popular)
-  
-  
-  if (isLoading) return null;
-  if (popular.isLoading) return null;
-  
-
+export const Main: React.FC<Props> = (props) => {
+  const classes = useStyles()
   return (
     <>
       <Container maxWidth="lg">
         <Head title="Best Movies of this season" />
       </Container>
       <HomeCarousel>
-        {teaser?.data.map((val, index) => (
-          <div key={index}>
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i}>
             <Box px={2} width="100%" display="flex" justifyContent="center">
-              <Card
-                mainImage={val.poster}
-                title={val.title}
-                details={{
-                  cost: 0,
-                  genre: val.keywords.length>0 ? val.keywords[0].title : "",
-                  rating: val.rating_imdb,
-                  year: parseInt(val.release_time),
-                }}
-                type="large"
-              />
+              <Card mainImage={generatePhoto()} type="large" {...data} />
             </Box>
           </div>
         ))}
       </HomeCarousel>
       <Container maxWidth="lg" className={classes.Container}>
         <Head title="Popular" />
-        <Box pb={3}>
-          <CatalogNav />
-        </Box>
-        <Grid
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          component={motion.div}
-          container
-          spacing={5}
-        >
-          {popular.data?.pages.map((group, i) => (
-            <>
-              {group.data.map((val) => (
-                <Grid
-                  variants={item}
-                  component={motion.div}
-                  item
-                  lg={2}
-                  md={3}
-                  sm={4}
-                  xs={12}
-                  key={val.id}
-                >
-                  <Card
-                    mainImage={val.poster}
-                    title={val.title}
-                    details={{
-                      cost: 0,
-                      genre: val.keywords.length>0 ? val.keywords[0].title : "",
-                      rating: val.rating_imdb,
-                      year: parseInt(val.release_time),
-                    }}
-                    type="small"
-                  />
-                </Grid>
-              ))}
-            </>
-          ))}
-        </Grid>
+
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <Grid container spacing={5}>
+            {[...new Array(18)].map((val, index) => (
+              <Grid item lg={2} md={3} sm={4} xs={12} key={index}>
+                <motion.div variants={item}>
+                  <Card mainImage={generatePhoto()} type="small" {...data} />
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </motion.div>
 
         <Box width="100%" display="flex" justifyContent="center" my={5}>
-          <FlatButton
-            onClick={() => popular.fetchNextPage()}
-            title="Load More"
-          />
+          <FlatButton title="Load More" />
         </Box>
       </Container>
     </>

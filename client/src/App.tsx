@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { StylesProvider, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "./components/Layout";
@@ -9,6 +10,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { FilterPage } from './pages/filter-page';
 import SideDrawer from './components/Navbar/mini_tools/SideDrawer'
 
+interface State {
+  sideDrawer: boolean
+
+}
+interface VoidFunction {
+  sideHandler: (flag: boolean) => void
+}
 function App() {
 
   return (
@@ -25,8 +33,7 @@ function App() {
           </Switch>
         </Layout>
       </StylesProvider>
-    </ThemeProvider>
-  );
+    </ThemeProvider>)
 }
 
 export default App;
