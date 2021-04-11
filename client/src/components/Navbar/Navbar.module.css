@@ -1,11 +1,11 @@
 .Header {
     width: 100%;
     padding: 0px;
-  
-    }
+   }
 
 .buttonVisible,.buttonNotVisible {
-   position: absolute;
+ 
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -17,10 +17,10 @@
     margin: 10px;
     border: none;
     background-color: #151f30;
-}
+ }
 .NavItem:hover {
   cursor: pointer;
- color : #1122dd
+  color : #1122dd
 }
 .searchButton {
   visibility: hidden;
@@ -53,8 +53,8 @@
   justify-content: space-between;
   color: white;
   align-items: center;
-
   padding: 15px;
+  
 }
 .dots {
   display: flex;
@@ -86,8 +86,6 @@
   align-self: center;
   margin-left: 40px;
   border: none;
- 
-
 }
 .searchbar::placeholder {
   color: white;
@@ -106,10 +104,12 @@
 }
 
 .NavItems {
+  
   display: none;
   margin-right: 15px;
   width: 600px;
   justify-content: space-between;
+
 }
 .Auth {
   margin: 10px;

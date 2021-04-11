@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { visitNode } from "typescript";
 import { IGenre } from "../../interfaces/genre";
 
  interface ICatalogNav {
@@ -13,6 +14,7 @@ import { IGenre } from "../../interfaces/genre";
   sort:string,
   genreId:number|null,
   pageCount : number,
+  authorArray : string[]
 }
 
 const initialState: ICatalogNav = {
@@ -27,6 +29,7 @@ const initialState: ICatalogNav = {
   sort: "top",
   genreId: null,
   pageCount:10,
+  authorArray:[]
 };
 
 const catalogNav = createSlice({
@@ -43,7 +46,8 @@ const catalogNav = createSlice({
     setContetntType : (state,action) => void(state.contentType = action.payload),
     setSort: (state,action)=> void(state.sort = action.payload),
     setGenreID:(state,action) =>void(state.genreId = action.payload),
-    setPageCount:(state,action) => void(state.pageCount = action.payload) 
+    setPageCount:(state,action) => void(state.pageCount = action.payload) ,
+    setArrayAuthor: (state,action) => void(state.authorArray = [...state.authorArray, action.payload]),
   },
 });
 
@@ -60,5 +64,6 @@ export const {
   setContetntType,
   setSort,
   setGenreID,
-  setPageCount
+  setPageCount,
+  setArrayAuthor
 } = catalogNav.actions;

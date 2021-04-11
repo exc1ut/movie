@@ -84,10 +84,10 @@ export const FilterPage: React.FC<Props> = ({ content_type }) => {
 
 
 
-  const handlePagination = useCallback((event, page) => {
+  const handlePagination = (event, page) => {
     dispatch(setCurrentPage(page));
     page = filters.catalogNav.currentPage;
-  }, [currentPage])
+  }
   useEffect(() => {
     if (queryMovies.data?.data.meta.pageCount) {
       dispatch(setPageCount(queryMovies.data?.data.meta.pageCount));

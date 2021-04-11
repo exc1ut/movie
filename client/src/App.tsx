@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { FilterPage } from './pages/filter-page';
 import SideDrawer from './components/Navbar/mini_tools/SideDrawer'
 import SignIn from "./pages/SignIn"
+import Testing from "./components/Testing"
 function App() {
 
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route exact path="/culture" render={() => <FilterPage content_type={6} />} />
               <Route exact path="/education" render={() => <FilterPage content_type={7} />} />
               <Route path="/signIn" component={SignIn} />
+              <Route path="/testing" component={Testing} />
             </Switch>
 
 
